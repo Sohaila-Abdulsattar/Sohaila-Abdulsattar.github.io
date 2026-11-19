@@ -6,7 +6,14 @@
 /* cover the page with the intro's blank light screen from the very first paint, so the finished hero never flashes before the intro starts */
 try { if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) { document.documentElement.classList.add('lx-pre'); setTimeout(function () { document.documentElement.classList.remove('lx-pre'); }, 6000); } } catch (e) {}
 </script>
-<style>html.lx-pre .lx-intro{display:block}</style>
+<style>html.lx-pre .lx-intro{display:block}/* paper tags: on phones the venue and track sit on two lines */
+.ptag-br{display:none}
+@media (max-width:700px){
+  .ptag-sep{display:none}
+  .ptag-br{display:inline}
+  .ptag{padding:10px 20px !important}
+}
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sohaila Abdulsattar</title>
 <link rel="canonical" href="https://sohailaabdulsattar.com/">
@@ -378,7 +385,7 @@ html[data-nall] .nmore-less{display:inline}
 
 <article style="width: min(84vw, 540px); flex: none; background: #F2F2F0; color: #141414; border-radius: 24px; overflow: clip; display: flex; flex-direction: column">
 <div class="glow" style="flex: 0 1 38%; min-height: 72px; padding: 24px 28px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: flex-start">
-<span style="font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 999px; background: #F2F2F0">ICSE 2027 · Research Track</span>
+<span class="ptag" style="font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 999px; background: #F2F2F0">ICSE 2027<span class="ptag-sep"> · </span><br class="ptag-br">Research Track</span>
 <span style="font-size: clamp(40px, 8svh, 64px); line-height: 0.8; font-weight: 600; letter-spacing: -0.05em">01</span>
 </div>
 <div style="flex: 1; padding: clamp(18px, 3svh, 28px) 28px clamp(22px, 3.5svh, 32px); display: flex; flex-direction: column; gap: clamp(10px, 2svh, 20px)">
@@ -393,7 +400,7 @@ html[data-nall] .nmore-less{display:inline}
 
 <article style="width: min(84vw, 540px); flex: none; background: #F2F2F0; color: #141414; border-radius: 24px; overflow: clip; display: flex; flex-direction: column">
 <div class="glow" style="animation-delay: -8s; flex: 0 1 38%; min-height: 72px; padding: 24px 28px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: flex-start">
-<span style="font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 999px; background: #F2F2F0">EACL 2026 · AbjadNLP Workshop</span>
+<span class="ptag" style="font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 999px; background: #F2F2F0">EACL 2026<span class="ptag-sep"> · </span><br class="ptag-br">AbjadNLP Workshop</span>
 <span style="font-size: clamp(40px, 8svh, 64px); line-height: 0.8; font-weight: 600; letter-spacing: -0.05em">02</span>
 </div>
 <div style="flex: 1; padding: clamp(18px, 3svh, 28px) 28px clamp(22px, 3.5svh, 32px); display: flex; flex-direction: column; gap: clamp(10px, 2svh, 20px)">
@@ -559,6 +566,12 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
       var LenisClass = reduce ? null : Component.getLenis();
       if (LenisClass) {
         this.lenis = new LenisClass({ autoRaf: true, lerp: 0.085, wheelMultiplier: 0.9, anchors: true });
+        // stop the browser's own instant jump on in-page links, so the smooth scroll is the only thing that moves the page
+        this.onHashClick = function (e) {
+          var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
+          if (a && self.lenis) e.preventDefault();
+        };
+        document.addEventListener('click', this.onHashClick, true);
       }
       if (useIntro) this.runIntro(ov);
       else root.classList.remove('lx-pre');
@@ -809,6 +822,7 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
       ov.style.display = 'none';
     }
     document.documentElement.classList.remove('lx-run');
+    if (this.onHashClick) { document.removeEventListener('click', this.onHashClick, true); this.onHashClick = null; }
     if (this.lenis) { this.lenis.destroy(); this.lenis = null; }
     if (this.raf) { cancelAnimationFrame(this.raf); this.raf = null; }
     if (this.onMove) { window.removeEventListener('pointermove', this.onMove); this.onMove = null; }
