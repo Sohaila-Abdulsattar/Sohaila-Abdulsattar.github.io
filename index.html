@@ -566,12 +566,6 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
       var LenisClass = reduce ? null : Component.getLenis();
       if (LenisClass) {
         this.lenis = new LenisClass({ autoRaf: true, lerp: 0.085, wheelMultiplier: 0.9, anchors: true });
-        // stop the browser's own instant jump on in-page links, so the smooth scroll is the only thing that moves the page
-        this.onHashClick = function (e) {
-          var a = e.target && e.target.closest ? e.target.closest('a[href^="#"]') : null;
-          if (a && self.lenis) e.preventDefault();
-        };
-        document.addEventListener('click', this.onHashClick, true);
       }
       if (useIntro) this.runIntro(ov);
       else root.classList.remove('lx-pre');
@@ -822,7 +816,6 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
       ov.style.display = 'none';
     }
     document.documentElement.classList.remove('lx-run');
-    if (this.onHashClick) { document.removeEventListener('click', this.onHashClick, true); this.onHashClick = null; }
     if (this.lenis) { this.lenis.destroy(); this.lenis = null; }
     if (this.raf) { cancelAnimationFrame(this.raf); this.raf = null; }
     if (this.onMove) { window.removeEventListener('pointermove', this.onMove); this.onMove = null; }
@@ -955,6 +948,10 @@ function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;valu
     page.componentDidMount();
     var vals = page.renderVals();
     document.querySelectorAll('[data-replay]').forEach(function (a) { a.addEventListener('click', vals.replay); });
+    // menu links still jump or glide as before; afterwards the #section is taken back off the address so it stays clean
+    window.addEventListener('hashchange', function () {
+      if (location.hash) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
+    });
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
 })();
