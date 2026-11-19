@@ -1,0 +1,949 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<script>
+/* cover the page with the intro's blank light screen from the very first paint, so the finished hero never flashes before the intro starts */
+try { if (!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) { document.documentElement.classList.add('lx-pre'); setTimeout(function () { document.documentElement.classList.remove('lx-pre'); }, 6000); } } catch (e) {}
+</script>
+<style>html.lx-pre .lx-intro{display:block}</style>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sohaila Abdulsattar</title>
+<link rel="canonical" href="https://sohailaabdulsattar.com/">
+<meta name="description" content="PhD student at NYU working on AI for software engineering.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Cdefs%3E%3ClinearGradient id=%22g%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23FF1F8E%22/%3E%3Cstop offset=%22.25%22 stop-color=%22%23FF8A2A%22/%3E%3Cstop offset=%22.5%22 stop-color=%22%23FFBE1A%22/%3E%3Cstop offset=%22.75%22 stop-color=%22%232ED3A0%22/%3E%3Cstop offset=%221%22 stop-color=%22%2300C2F0%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cdefs%3E%3ClinearGradient id=%22GIDf%22 x1=%227.4%22 y1=%227.4%22 x2=%2224.6%22 y2=%2224.6%22 gradientUnits=%22userSpaceOnUse%22%3E%3Cstop offset=%220%22 stop-color=%22%23FF1F8E%22/%3E%3Cstop offset=%22.08%22 stop-color=%22%23FF1F8E%22/%3E%3Cstop offset=%22.22%22 stop-color=%22%23FF4F6A%22/%3E%3Cstop offset=%22.37%22 stop-color=%22%23FF8A2A%22/%3E%3Cstop offset=%22.51%22 stop-color=%22%23FFBE1A%22/%3E%3Cstop offset=%22.65%22 stop-color=%22%23A8D83A%22/%3E%3Cstop offset=%22.79%22 stop-color=%22%232ED3A0%22/%3E%3Cstop offset=%22.92%22 stop-color=%22%2300C2F0%22/%3E%3Cstop offset=%221%22 stop-color=%22%2300C2F0%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx=%2216%22 cy=%2216%22 r=%2211%22 fill=%22url%28%23GIDf%29%22/%3E%3C/svg%3E">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#F2F2F0}
+html.lenis,html.lenis body{height:auto}
+a{color:inherit}
+a:hover{color:inherit}
+a.hov{color:inherit}
+::selection{background:#141414;color:#F2F2F0}
+
+/* color fields */
+.glow{background:linear-gradient(105deg in oklch,#FF1F8E 0%,#FF1F8E 8%,#FF4F6A 22%,#FF8A2A 37%,#FFBE1A 51%,#A8D83A 65%,#2ED3A0 79%,#00C2F0 92%,#00C2F0 100%);background-size:220% 100%;animation:glowShift 16s ease-in-out infinite alternate}
+@keyframes glowShift{from{background-position:0% 50%}to{background-position:100% 50%}}
+.cut{color:transparent;-webkit-background-clip:text;background-clip:text}
+.gblue{background:linear-gradient(135deg in oklch,#F0127E 0%,#FF1F8E 18%,#FF4F6A 34%,#FF8A2A 50%,#FFBE1A 64%,#A8D83A 78%,#2ED3A0 90%,#00C2F0 100%)}
+.dots{background-image:radial-gradient(circle,rgba(255,255,255,.6) 1.4px,transparent 1.9px);background-size:12px 12px;-webkit-mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 38%,transparent 68%);mask-image:radial-gradient(circle,#000 0%,rgba(0,0,0,.55) 38%,transparent 68%);border-radius:50%}
+.spot{--mx:30%;--my:50%;background:radial-gradient(circle at var(--mx) var(--my) in oklch,#FF1F8E 0%,#FF4F6A 6%,#FF8A2A 12%,#FFBE1A 18%,#A8D83A 24%,#2ED3A0 30%,#00C2F0 36%,#E9E7E2 56%);color:transparent;-webkit-background-clip:text;background-clip:text}
+
+@property --spa{syntax:'<number>';inherits:true;initial-value:1}
+.spot-name{--mx:-200%;--my:50%;background-image:radial-gradient(circle at var(--mx) var(--my) in oklch,color-mix(in srgb,#FF1F8E calc(var(--spa) * 100%),#E9E7E2) 0%,color-mix(in srgb,#FF4F6A calc(var(--spa) * 100%),#E9E7E2) 6%,color-mix(in srgb,#FF8A2A calc(var(--spa) * 100%),#E9E7E2) 12%,color-mix(in srgb,#FFBE1A calc(var(--spa) * 100%),#E9E7E2) 18%,color-mix(in srgb,#A8D83A calc(var(--spa) * 100%),#E9E7E2) 24%,color-mix(in srgb,#2ED3A0 calc(var(--spa) * 100%),#E9E7E2) 30%,color-mix(in srgb,#00C2F0 calc(var(--spa) * 100%),#E9E7E2) 36%,#E9E7E2 56%);transition:--spa 1.2s cubic-bezier(.2,.8,.1,1)}
+.lx-run .spot-name{--spa:0}
+
+/* load-in */
+.mask{display:block;overflow:clip;padding-bottom:.06em;margin-bottom:-.06em}
+.hero-word{display:inline-block;padding:.14em .14em;margin:-.14em -.14em}
+.hl{display:inline-block}
+.lx-late{transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1.2s cubic-bezier(.16,1,.3,1)}
+.lx-run .lx-late{opacity:0;transform:translateY(28px);transition:none}
+
+/* landing intro: light loader, name rises in, dark wipe, name settles into the hero */
+.lx-intro{position:fixed;inset:0;z-index:90;pointer-events:none;display:none;--u:min(1vw,2.2svh)}
+.lx-layer{position:absolute;inset:0;overflow:hidden}
+.lx-wipe{clip-path:inset(100% 0 0 0)}
+.lx-stack{position:absolute;left:clamp(16px,3vw,48px);right:clamp(16px,3vw,48px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column}
+.lx-hi{display:inline-block;align-self:flex-start;font-size:clamp(26px,calc(4.4 * var(--u)),76px);font-weight:500;letter-spacing:-.035em;line-height:1.1;margin:0 0 var(--u) .06em;clip-path:inset(-40% -10% 0 -10%)}
+.lx-hi > span{display:inline-block;transform:translateY(115%)}
+.lx-w{display:inline-block;font-weight:600;letter-spacing:-.055em;line-height:.88;white-space:nowrap;transform-origin:0 0}
+.lx-w0{align-self:flex-start;font-size:clamp(80px,calc(22 * var(--u)),400px)}
+.lx-w1{align-self:flex-end;font-size:clamp(40px,calc(9.5 * var(--u)),180px);margin-top:var(--u)}
+.lt{display:inline-block;clip-path:inset(-40% -20% 0 -20%)}
+.lt > span{display:inline-block;transform:translateY(115%)}
+.lx-w0 .lt{letter-spacing:0;margin-right:-.055em}
+.lx-g{padding:.16em .12em;margin:-.16em -.12em;color:transparent;-webkit-background-clip:text;background-clip:text;background-image:linear-gradient(105deg in oklch,#FF1F8E 0%,#FF1F8E 8%,#FF4F6A 22%,#FF8A2A 37%,#FFBE1A 51%,#A8D83A 65%,#2ED3A0 79%,#00C2F0 92%,#00C2F0 100%)}
+@keyframes pulse{0%,100%{transform:scale(.7)}50%{transform:scale(1)}}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+
+/* hover */
+.nav a{text-decoration:none;opacity:.9}
+/* menu links: the underline draws in from the left on hover and slides out to the right after (mouse only) */
+@media (hover:hover){
+  .nav a{background:linear-gradient(currentColor,currentColor) no-repeat 100% 100% / 0% 1.5px;padding-bottom:3px;margin-bottom:-3px;transition:background-size .45s cubic-bezier(.2,.8,.1,1),opacity .3s}
+  :where(html:not([data-shov])) .nav a:hover,.nav a.hov{opacity:1;background-position:0 100%;background-size:100% 1.5px}
+}
+.rrow{position:relative;isolation:isolate;transition:color .5s cubic-bezier(.2,.8,.1,1)}
+.rrow::before{content:'';position:absolute;inset:0;z-index:-1;background:#141414;transform:scaleY(0);transform-origin:50% 100%;transition:transform .6s cubic-bezier(.2,.8,.1,1)}
+@media (hover:hover){:where(html:not([data-shov])) .rrow:hover{color:#F2F2F0}}
+.rrow.hov{color:#F2F2F0}
+@media (hover:hover){:where(html:not([data-shov])) .rrow:hover::before{transform:scaleY(1)}}
+.rrow.hov::before{transform:scaleY(1)}
+.rrow .rdot{transform:scale(0);transition:transform .5s cubic-bezier(.2,.8,.1,1)}
+@media (hover:hover){:where(html:not([data-shov])) .rrow:hover .rdot{transform:scale(1)}}
+.rrow.hov .rdot{transform:scale(1)}
+.rrow .rdesc{color:#55554F;transition:color .5s}
+@media (hover:hover){:where(html:not([data-shov])) .rrow:hover .rdesc{color:rgba(242,242,240,.8)}}
+.rrow.hov .rdesc{color:rgba(242,242,240,.8)}
+.clink{text-decoration:none;transition:padding-left .5s cubic-bezier(.2,.8,.1,1)}
+@media (hover:hover){:where(html:not([data-shov])) .clink:hover{padding-left:20px}}
+.clink.hov{padding-left:20px}
+.clink-t{min-width:0}
+/* contacts: an underline draws in from the left on hover (mouse only; phones keep the plain rows) */
+@media (hover:hover){
+  .clink-t{background:linear-gradient(currentColor,currentColor) no-repeat 100% calc(100% - .14em) / 0% 1.5px;transition:background-size .5s cubic-bezier(.2,.8,.1,1)}
+  :where(html:not([data-shov])) .clink:hover .clink-t,.clink.hov .clink-t{background-position:0 calc(100% - .14em);background-size:100% 1.5px}
+}
+.pill{text-decoration:none;transition:background-color .3s,color .3s}
+@media (hover:hover){:where(html:not([data-shov])) .pill:hover{background-color:#141414;color:#F2F2F0}}
+/* buttons only light up for a mouse; on phones scrolling past them leaves them alone */
+@media (hover:hover){.pill.hov{background-color:#141414;color:#F2F2F0}}
+.otl{position:relative}
+.otl::after{content:'';position:absolute;left:0;right:0;top:-1px;height:3px;background:linear-gradient(90deg in oklch,#FF1F8E 0%,#FF1F8E 8%,#FF4F6A 22%,#FF8A2A 37%,#FFBE1A 51%,#A8D83A 65%,#2ED3A0 79%,#00C2F0 92%,#00C2F0 100%);transform:scaleX(0);transform-origin:0 50%;transition:transform .6s cubic-bezier(.2,.8,.1,1)}
+@media (hover:hover){:where(html:not([data-shov])) .otl:hover::after{transform:scaleX(1)}}
+.otl.hov::after{transform:scaleX(1)}
+.otl h3{align-self:flex-start;padding:0 .08em .14em 0;margin-bottom:-.14em !important;background-image:linear-gradient(100deg in oklch,#FF1F8E 0%,#FF1F8E 8%,#FF4F6A 22%,#FF8A2A 37%,#FFBE1A 51%,#A8D83A 65%,#2ED3A0 79%,#00C2F0 92%,#00C2F0 100%);-webkit-background-clip:text;background-clip:text;transition:color .45s cubic-bezier(.2,.8,.1,1),translate .5s cubic-bezier(.2,.8,.1,1)}
+@media (hover:hover){:where(html:not([data-shov])) .otl:hover h3{color:transparent;translate:0 -4px}}
+.otl.hov h3{color:transparent;translate:0 -4px}
+.otl p{transition:color .45s}
+@media (hover:hover){:where(html:not([data-shov])) .otl:hover p{color:#141414 !important}}
+.otl.hov p{color:#141414 !important}
+/* latest news: scroll through it; the big sticky date rolls like an odometer to the item you are reading. Only the newest few show until "See all news" */
+html{--nk:0;--nm:0}
+.nd{position:relative;display:grid;overflow:clip;font-size:clamp(84px,10.5vw,190px);line-height:.9;font-weight:600;letter-spacing:-.055em}
+.nd-l{grid-area:1/1;display:flex;flex-direction:column;align-items:flex-start;transform:translateY(calc((var(--l) - var(--nm)) * 115%));transition:transform .85s cubic-bezier(.16,1,.3,1)}
+.nd-m{padding:0 .1em .26em 0;margin-bottom:-.12em}
+.ndd{display:grid;overflow:clip;margin-top:0;font-size:15px;line-height:1.4;font-weight:500;color:#55554F}
+.ndd-l{grid-area:1/1;transform:translateY(calc((var(--l) - var(--nk)) * 115%));transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.ni{position:relative;display:grid;grid-template-columns:1fr auto;gap:10px 32px;align-items:start;padding:36px 0 44px;border-top:1px solid rgba(20,20,20,.18);text-decoration:none;color:#141414;transition:opacity .6s}
+html[data-nactive] .ni{opacity:max(.3,1 - max(var(--l) - var(--nk),var(--nk) - var(--l)) * .7)}
+.ni::after{content:"";position:absolute;left:0;right:0;top:-1px;height:3px;background:linear-gradient(90deg in oklch,#FF1F8E 0%,#FF1F8E 8%,#FF4F6A 22%,#FF8A2A 37%,#FFBE1A 51%,#A8D83A 65%,#2ED3A0 79%,#00C2F0 92%,#00C2F0 100%);transform:scaleX(0);transform-origin:0 50%;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+@media (hover:hover){:where(html:not([data-shov])) .ni:not(.ni-dim):hover::after{transform:scaleX(1)}}
+.ni:not(.ni-dim).hov::after{transform:scaleX(1)}
+.ni h3{grid-column:1;margin:0;font-size:clamp(30px,3.6vw,56px);line-height:1;font-weight:500;letter-spacing:-.045em;text-wrap:balance;justify-self:start;padding:0 .08em .06em 0;background-image:linear-gradient(100deg in oklch,#FF1F8E 0%,#FF1F8E 8%,#FF4F6A 22%,#FF8A2A 37%,#FFBE1A 51%,#A8D83A 65%,#2ED3A0 79%,#00C2F0 92%,#00C2F0 100%);-webkit-background-clip:text;background-clip:text;transition:color .45s}
+.ni p{grid-column:1;margin:0;max-width:560px;color:#55554F;text-wrap:pretty}
+.ni-tag{grid-column:1/-1;display:flex;gap:12px;font-size:15px;font-weight:500;color:#55554F}
+.ni-date{display:none}
+.ni-go{grid-row:2/4;grid-column:2;align-self:center;width:56px;height:56px;border-radius:50%;border:1px solid rgba(20,20,20,.25);display:grid;place-items:center;font-size:22px;transition:transform .5s cubic-bezier(.16,1,.3,1),background .3s,color .3s,border-color .3s}
+@media (hover:hover){:where(html:not([data-shov])) .ni:not(.ni-dim):hover h3{color:transparent}}
+.ni:not(.ni-dim).hov h3{color:transparent}
+@media (hover:hover){:where(html:not([data-shov])) a.ni:not(.ni-dim):hover .ni-go{background:#141414;color:#F2F2F0;border-color:#141414}}
+a.ni:not(.ni-dim).hov .ni-go{background:#141414;color:#F2F2F0;border-color:#141414}
+.ni-go span{display:inline-block;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.ni[hidden]{display:none}
+html,body{overflow-anchor:none}
+@keyframes niIn{from{transform:translateY(24px)}to{transform:none}}
+.nmore{all:unset;box-sizing:border-box;align-self:flex-start;margin-top:8px;font-size:15px;font-weight:500;padding:13px 22px;min-height:48px;display:inline-flex;align-items:center;gap:10px;border:1px solid #141414;border-radius:999px;cursor:pointer;transition:background .3s,color .3s}
+@media (hover:hover){:where(html:not([data-shov])) .nmore:hover{background:#141414;color:#F2F2F0}}
+@media (hover:hover){.nmore.hov{background:#141414;color:#F2F2F0}}
+.nmore:focus-visible{outline:2px solid #141414;outline-offset:3px}
+.nmore-less,html[data-nall] .nmore-all{display:none}
+html[data-nall] .nmore-less{display:inline}
+@media (max-width:760px){.nd-wrap{display:none}.ni-date{display:inline}.news-stick{position:static !important}html[data-nactive] .ni{opacity:1}.ni.ni-dim{pointer-events:auto}}
+.arow{position:relative}
+.arow::before,.arow::after{content:'';position:absolute;left:0;right:0;height:3px;background:linear-gradient(90deg in oklch,#FF1F8E 0%,#FF1F8E 8%,#FF4F6A 22%,#FF8A2A 37%,#FFBE1A 51%,#A8D83A 65%,#2ED3A0 79%,#00C2F0 92%,#00C2F0 100%);transform:scaleX(0);transform-origin:0 50%;transition:transform .6s cubic-bezier(.2,.8,.1,1);pointer-events:none}
+.arow::before{top:-2px}
+.arow::after{bottom:-2px}
+@media (hover:hover){:where(html:not([data-shov])) .arow:hover::before,:where(html:not([data-shov])) .arow:hover::after{transform:scaleX(1)}}
+.arow.hov::before,.arow.hov::after{transform:scaleX(1)}
+.arow dt{transition:color .4s}
+@media (hover:hover){:where(html:not([data-shov])) .arow:hover dt{color:#141414 !important}}
+.arow.hov dt{color:#141414 !important}
+.arow dd{transition:translate .5s cubic-bezier(.2,.8,.1,1)}
+@media (hover:hover){:where(html:not([data-shov])) .arow:hover dd{translate:12px 0}}
+.arow.hov dd{translate:12px 0}
+/* advisor names light up in the page gradient when their row is hovered */
+.nm{background-image:linear-gradient(100deg in oklch,#FF1F8E 0%,#FF1F8E 8%,#FF4F6A 22%,#FF8A2A 37%,#FFBE1A 51%,#A8D83A 65%,#2ED3A0 79%,#00C2F0 92%,#00C2F0 100%);-webkit-background-clip:text;background-clip:text;transition:color .45s;padding-right:.04em;text-decoration:none !important;transition:color .45s}
+@media (hover:hover){:where(html:not([data-shov])) .arow:hover .nm{color:transparent}}
+.arow.hov .nm{color:transparent}
+.nm-a{display:inline-block;vertical-align:bottom;max-width:0;overflow:hidden;opacity:0;margin-left:0;font-size:.85em;text-decoration:none;transition:max-width .45s cubic-bezier(.2,.8,.1,1),margin-left .45s cubic-bezier(.2,.8,.1,1),opacity .3s}
+@media (hover:hover){:where(html:not([data-shov])) .arow:hover .nm-a{max-width:1.2em;margin-left:.2em;opacity:1}}
+.arow.hov .nm-a{max-width:1.2em;margin-left:.2em;opacity:1}
+
+/* custom cursor */
+.sa-cursor{position:fixed;left:0;top:0;z-index:100;pointer-events:none;mix-blend-mode:difference;opacity:0;transition:opacity .3s;display:none}
+.sa-has-cursor .sa-cursor{display:block}
+.sa-has-cursor,.sa-has-cursor *{cursor:none !important}
+.sa-cursor::before{content:'';position:absolute;width:14px;height:14px;left:-7px;top:-7px;border-radius:50%;background:#fff;transition:width .45s cubic-bezier(.2,.8,.1,1),height .45s cubic-bezier(.2,.8,.1,1),left .45s cubic-bezier(.2,.8,.1,1),top .45s cubic-bezier(.2,.8,.1,1),background-color .3s}
+.sa-cursor[data-mode="link"]::before{width:60px;height:60px;left:-30px;top:-30px}
+.sa-cursor[data-mode="label"]{mix-blend-mode:normal}
+.sa-cursor[data-mode="label"]::before{width:116px;height:116px;left:-58px;top:-58px;background:#FF4F6A}
+.sa-cursor::after{content:attr(data-label);position:absolute;left:0;top:0;transform:translate(-50%,-50%) scale(.3);opacity:0;font:500 15px/1 'Inter Tight',-apple-system,'Helvetica Neue',Arial,sans-serif;letter-spacing:-.01em;color:#141414;white-space:nowrap;transition:opacity .3s,transform .45s cubic-bezier(.2,.8,.1,1)}
+.sa-cursor[data-mode="label"]::after{opacity:1;transform:translate(-50%,-50%) scale(1)}
+
+/* fallbacks when scroll-driven animation is missing */
+.hs-sticky{overflow-x:auto}
+.w2,.w3{opacity:0}
+
+@supports (animation-timeline: view()) {
+  .drift-l{animation:driftL linear both;animation-timeline:scroll(root);animation-range:0px 900px}
+  @keyframes driftL{to{transform:translateX(-14vw)}}
+  .drift-r{animation:driftR linear both;animation-timeline:scroll(root);animation-range:0px 900px}
+  @keyframes driftR{to{transform:translateX(10vw)}}
+
+  .reveal{animation:fadeUp linear both;animation-timeline:view();animation-range:entry 0% entry 85%}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(56px)}to{opacity:1;transform:none}}
+  .ink{animation:inkIn linear both;animation-timeline:view();animation-range:cover 6% cover 36%}
+  @keyframes inkIn{from{opacity:.14}to{opacity:1}}
+  .up{display:block;animation:upIn linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+  @keyframes upIn{from{transform:translateY(102%)}to{transform:none}}
+
+  /* pinned statement */
+  .pin{height:calc(min(100svh,920px) * 2.6);view-timeline-name:--stmt}
+  .pin-inner{position:sticky;top:0;height:min(100svh,920px)}
+  .blob{animation:blobGrow linear both,glowShift 16s ease-in-out infinite alternate;animation-timeline:--stmt,auto;animation-range:contain 0% contain 100%,normal}
+  @keyframes blobGrow{from{transform:translate(-50%,-50%) scale(.55) rotate(0deg)}to{transform:translate(-50%,-50%) scale(1.25) rotate(40deg)}}
+  .orb{animation:orbSpin linear both;animation-timeline:--stmt;animation-range:contain 0% contain 100%}
+  @keyframes orbSpin{from{transform:translate(-50%,-50%) scale(.8)}to{transform:translate(-50%,-50%) scale(1.5)}}
+  .w1{animation:w1 linear both,glowShift 16s ease-in-out infinite alternate;animation-timeline:--stmt,auto;animation-range:contain 0% contain 36%,normal}
+  .w2{animation:w2 linear both,glowShift 16s ease-in-out infinite alternate;animation-timeline:--stmt,auto;animation-range:contain 26% contain 70%,normal}
+  .w3{animation:w3 linear both,glowShift 16s ease-in-out infinite alternate;animation-timeline:--stmt,auto;animation-range:contain 62% contain 100%,normal}
+  @keyframes w1{0%,62%{opacity:1;filter:blur(0);transform:none}100%{opacity:0;filter:blur(14px);transform:translateY(-28%)}}
+  @keyframes w2{0%{opacity:0;filter:blur(14px);transform:translateY(28%)}30%,72%{opacity:1;filter:blur(0);transform:none}100%{opacity:0;filter:blur(14px);transform:translateY(-28%)}}
+  @keyframes w3{0%{opacity:0;filter:blur(14px);transform:translateY(28%)}40%,100%{opacity:1;filter:blur(0);transform:none}}
+
+  /* horizontal papers */
+  .hs{height:calc(min(100svh,960px) * 2.3);view-timeline-name:--papers}
+  .hs-sticky{position:sticky;top:0;height:min(100svh,960px);overflow:clip}
+  /* when every paper card already fits on screen: no pinned sideways scroll, no "Keep scrolling" */
+  html[data-hs-fit] .hs{height:auto}
+  html[data-hs-fit] .hs-sticky{position:relative}
+  html[data-hs-fit] .hs-hint{visibility:hidden}
+  .hs-track{animation:hsx linear both;animation-timeline:--papers;animation-range:contain 4% contain 96%}
+  @keyframes hsx{from{transform:translateX(0)}to{transform:translateX(min(0px,calc(-100% + 100vw)))}}
+  .hs-bar{transform-origin:0 50%;animation:hsbar linear both;animation-timeline:--papers;animation-range:contain 4% contain 96%}
+  @keyframes hsbar{from{transform:scaleX(.04)}to{transform:scaleX(1)}}
+
+  /* rigor lines */
+  .slide-l{animation:slideL linear both,glowShift 16s ease-in-out infinite alternate;animation-timeline:view(),auto;animation-range:cover 0% cover 100%,normal}
+  @keyframes slideL{from{transform:translateX(6%)}to{transform:translateX(-34%)}}
+  .slide-r{animation:slideR linear both;animation-timeline:view();animation-range:cover 0% cover 100%}
+  @keyframes slideR{from{transform:translateX(-34%)}to{transform:translateX(6%)}}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .w2,.w3{display:none}
+}
+
+/* ---------- phones ---------- */
+.mnav-btn,.mnav{display:none}
+@media (max-width:700px){
+  .nav nav[aria-label="Main"]{display:none !important}
+  .nav{flex-wrap:nowrap !important}
+  section[aria-label="Intro"] h1{font-size:17.2vw !important}
+  .mnav-btn{all:unset;display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:15px;font-weight:500;padding:10px 0 10px 16px;min-height:24px;-webkit-tap-highlight-color:transparent}
+  .mnav-btn::before{content:"";width:18px;height:8px;border-top:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transition:transform .5s cubic-bezier(.16,1,.3,1),height .5s cubic-bezier(.16,1,.3,1)}
+  .mnav-close-l,.mnav-on .mnav-open-l{display:none}
+  .mnav-on .mnav-close-l{display:inline}
+  .mnav-on .mnav-btn::before{height:0;transform:rotate(180deg)}
+  /* full-screen menu: wipes down like the intro, big words rise in one by one */
+  .mnav{display:flex;position:fixed;inset:0;z-index:45;background:#141414;color:#F2F2F0;flex-direction:column;justify-content:space-between;padding:96px 16px 28px;box-sizing:border-box;clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .7s cubic-bezier(.76,0,.24,1),visibility 0s .7s}
+  .mnav-on .mnav{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .7s cubic-bezier(.76,0,.24,1),visibility 0s}
+  .mnav-links{display:flex;flex-direction:column}
+  .mnav-links a{display:block;overflow:clip;text-decoration:none;font-size:clamp(38px,11.5vw,64px);line-height:.98;font-weight:600;letter-spacing:-.055em;padding-bottom:.04em;-webkit-tap-highlight-color:transparent}
+  .mnav-links a span{display:inline-block;padding-right:.08em;transform:translateY(105%);transition:transform .8s cubic-bezier(.16,1,.3,1);background-image:linear-gradient(100deg in oklch,#FF1F8E 0%,#FF1F8E 8%,#FF4F6A 22%,#FF8A2A 37%,#FFBE1A 51%,#A8D83A 65%,#2ED3A0 79%,#00C2F0 92%,#00C2F0 100%);-webkit-background-clip:text;background-clip:text}
+  .mnav-on .mnav-links a span{transform:none;transition-delay:calc(.18s + var(--i) * .06s)}
+  .mnav-links a:active span,.mnav-links a.hit span{color:transparent}
+  .mnav-foot{display:flex;flex-direction:column;gap:6px;font-size:15px;font-weight:500;color:rgba(242,242,240,.7);opacity:0;transform:translateY(12px);transition:opacity .5s,transform .6s cubic-bezier(.16,1,.3,1)}
+  .mnav-foot a{color:#F2F2F0;text-decoration:none}
+  .mnav-on .mnav-foot{opacity:1;transform:none;transition-delay:.5s}
+}
+/* touch screens: a quick press-in on anything tappable */
+@media (hover:none){
+  a,button{-webkit-tap-highlight-color:transparent}
+  .pill:active,.nmore:active,.ni-go:active,.clink:active{transform:scale(.96)}
+  .pill,.nmore,.clink{transition:transform .2s,background-color .3s,color .3s,padding .45s}
+}
+</style>
+
+</head>
+<body>
+
+<div id="top" style="font-family: 'Inter Tight', -apple-system, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif; color: #141414; background: #F2F2F0; overflow-x: clip; -webkit-font-smoothing: antialiased; font-size: 17px; line-height: 1.5; letter-spacing: -0.01em">
+
+<div id="sa-cursor" class="sa-cursor" aria-hidden="true"></div>
+
+<div id="lx-intro" class="lx-intro" aria-hidden="true">
+<div class="lx-layer" style="background: #F2F2F0; color: #141414">
+<div class="lx-stack">
+<span class="lx-hi"><span>Hello, I'm</span></span>
+<span class="lx-w lx-w0" data-a="0"><span class="lt"><span class="lx-g">S</span></span><span class="lt"><span class="lx-g">o</span></span><span class="lt"><span class="lx-g">h</span></span><span class="lt"><span class="lx-g">a</span></span><span class="lt"><span class="lx-g">i</span></span><span class="lt"><span class="lx-g">l</span></span><span class="lt"><span class="lx-g">a</span></span></span>
+<span class="lx-w lx-w1" data-a="1"><span class="lt"><span>A</span></span><span class="lt"><span>b</span></span><span class="lt"><span>d</span></span><span class="lt"><span>u</span></span><span class="lt"><span>l</span></span><span class="lt"><span>s</span></span><span class="lt"><span>a</span></span><span class="lt"><span>t</span></span><span class="lt"><span>t</span></span><span class="lt"><span>a</span></span><span class="lt"><span>r</span></span></span>
+</div>
+</div>
+<div id="lx-wipe" class="lx-layer lx-wipe" style="background: #141414; color: #E9E7E2">
+<div class="lx-stack">
+<span class="lx-hi"><span>Hello, I'm</span></span>
+<span class="lx-w lx-w0" data-b="0"><span class="lt"><span>S</span></span><span class="lt"><span>o</span></span><span class="lt"><span>h</span></span><span class="lt"><span>a</span></span><span class="lt"><span>i</span></span><span class="lt"><span>l</span></span><span class="lt"><span>a</span></span></span>
+<span class="lx-w lx-w1" data-b="1"><span class="lt"><span>A</span></span><span class="lt"><span>b</span></span><span class="lt"><span>d</span></span><span class="lt"><span>u</span></span><span class="lt"><span>l</span></span><span class="lt"><span>s</span></span><span class="lt"><span>a</span></span><span class="lt"><span>t</span></span><span class="lt"><span>t</span></span><span class="lt"><span>a</span></span><span class="lt"><span>r</span></span></span>
+</div>
+</div>
+</div>
+
+<header class="nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 50; mix-blend-mode: difference; color: #FFFFFF; padding: 20px clamp(16px, 3vw, 48px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; font-size: 15px; font-weight: 500">
+<a href="#top" data-replay title="Replay intro">Sohaila Abdulsattar</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 6px 24px">
+<a href="#about">About</a>
+<a href="#research">Research</a>
+<a href="#papers">Papers</a>
+<a href="#news">News</a>
+<a href="#contact">Contact</a>
+</nav>
+<button type="button" class="mnav-btn" data-menu="" aria-expanded="false" aria-controls="mnav"><span class="mnav-open-l">Menu</span><span class="mnav-close-l">Close</span></button>
+</header>
+<div id="mnav" class="mnav" aria-hidden="true">
+<nav aria-label="Menu" class="mnav-links">
+<a href="#about" data-mlink="" style="--i: 0"><span>About</span></a>
+<a href="#research" data-mlink="" style="--i: 1"><span>Research</span></a>
+<a href="#papers" data-mlink="" style="--i: 2"><span>Papers</span></a>
+<a href="#news" data-mlink="" style="--i: 3"><span>News</span></a>
+<a href="#contact" data-mlink="" style="--i: 4"><span>Contact</span></a>
+</nav>
+<div class="mnav-foot" style="--i: 5"><a href="mailto:sohaila.abdulsattar@nyu.edu">sohaila.abdulsattar@nyu.edu ↗</a><span>New York / Abu Dhabi</span></div>
+</div>
+
+<section aria-label="Intro" style="background: #141414; color: #F2F2F0; padding: clamp(72px, 13svh, 112px) clamp(16px, 3vw, 48px) clamp(24px, 5svh, 48px); min-height: 100svh; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(20px, 4svh, 48px)">
+<div class="lx-late" style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-size: 15px; font-weight: 500; color: rgba(242,242,240,0.7)"><span>PhD student, Computer Science</span><span>NYU · SANAD Lab</span></div>
+<h1 aria-label="Sohaila Abdulsattar" style="margin: 0; font-size: clamp(52px, min(14.6vw, calc((100svh - 330px) / 1.8)), 264px); line-height: 0.88; font-weight: 600; letter-spacing: -0.055em">
+<span class="mask drift-l" aria-hidden="true"><span class="hero-word spot spot-name" data-spot="1" data-f="0"><span class="hl">S</span><span class="hl">o</span><span class="hl">h</span><span class="hl">a</span><span class="hl">i</span><span class="hl">l</span><span class="hl">a</span></span></span>
+<span class="mask drift-r" aria-hidden="true" style="padding-left: 0.04em"><span class="hero-word spot spot-name" data-spot="1" data-f="1"><span class="hl">A</span><span class="hl">b</span><span class="hl">d</span><span class="hl">u</span><span class="hl">l</span><span class="hl">s</span><span class="hl">a</span><span class="hl">t</span><span class="hl">t</span><span class="hl">a</span><span class="hl">r</span></span></span>
+</h1>
+<div class="lx-late" style="transition-delay: .12s; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 32px 48px">
+<div style="margin: 0; max-width: 640px; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.2; font-weight: 500; letter-spacing: -0.025em; text-wrap: pretty"><span style="font-size: clamp(22px, 2.2vw, 30px); letter-spacing: -0.025em; text-wrap-mode: initial">Language models write a lot of code now, and plenty of it is wrong. I study why, and how to make them better.</span></div>
+<div style="display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 500">
+<span class="glow pulse" aria-hidden="true" style="display: block; width: 14px; height: 14px; border-radius: 50%"></span>
+<span>Scroll</span>
+</div>
+</div>
+</section>
+
+
+<section id="about" aria-labelledby="about-h" style="padding: clamp(96px, 11vw, 176px) clamp(16px, 3vw, 48px) 0">
+<div style="display: flex; flex-wrap: wrap; gap: 32px 48px">
+<div style="flex: 1 1 200px; display: flex; align-items: flex-start; gap: 10px; padding-top: 10px">
+<span class="glow" aria-hidden="true" style="display: block; width: 12px; height: 12px; border-radius: 50%; margin-top: 5px; flex: none"></span>
+<h2 id="about-h" style="margin: 0; font-size: 15px; font-weight: 500; letter-spacing: -0.01em">About</h2>
+</div>
+<div style="flex: 4 1 560px; min-width: 0; display: flex; flex-direction: column; gap: clamp(56px, 7vw, 104px)">
+<p style="margin: 0; font-size: clamp(28px, 3.4vw, 54px); line-height: 1.1; font-weight: 500; letter-spacing: -0.035em; text-wrap: pretty"><span>I'm a Global PhD Fellow in Computer Science at NYU. I work on AI for software engineering, with a focus on improving LLMs and agents for code generation.</span></p>
+<dl style="margin: 0; border-bottom: 1px solid rgba(20,20,20,0.18)">
+<div class="reveal arow" style="display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 18px 0; border-top: 1px solid rgba(20,20,20,0.18)">
+<dt style="flex: 0 0 180px; color: #55554F; font-weight: 500">Program</dt>
+<dd style="flex: 1 1 280px; margin: 0; font-weight: 500">PhD, Computer Science<br>NYU GSAS &amp; NYU Abu Dhabi, expected 2031</dd>
+</div>
+<div class="reveal arow" style="display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 18px 0; border-top: 1px solid rgba(20,20,20,0.18)">
+<dt style="flex: 0 0 180px; color: #55554F; font-weight: 500">Advisor</dt>
+<dd style="flex: 1 1 280px; margin: 0; font-weight: 500">Professor <a class="nm" href="https://sarahnadi.org" target="_blank" rel="noopener">Sarah Nadi<span class="nm-a" aria-hidden="true">↗</span></a><br>SANAD Lab</dd>
+</div>
+
+<div class="reveal arow" style="display: flex; flex-wrap: wrap; gap: 4px 24px; padding: 18px 0; border-top: 1px solid rgba(20,20,20,0.18)">
+<dt style="flex: 0 0 180px; color: #55554F; font-weight: 500">Before</dt>
+<dd style="flex: 1 1 280px; margin: 0; font-weight: 500">BS in Computer Science, minor in Applied Mathematics,&nbsp;summa cum laude<br>NYU Abu Dhabi, 2026<br>Capstone advised by Professor <a class="nm" href="https://sites.google.com/nyu.edu/keithross" target="_blank" rel="noopener">Keith Ross<span class="nm-a" aria-hidden="true">↗</span></a></dd>
+</div>
+</dl>
+</div>
+</div>
+</section>
+
+<section id="research" aria-labelledby="research-h" style="padding: clamp(96px, 11vw, 176px) 0">
+<div style="padding: 0 clamp(16px, 3vw, 48px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 24px">
+<h2 id="research-h" style="margin: 0; font-size: clamp(52px, 8.6vw, 156px); line-height: 0.9; font-weight: 500; letter-spacing: -0.055em"><span class="mask"><span class="up">Research<br>Interests</span></span></h2>
+</div>
+<div style="margin-top: clamp(48px, 6vw, 88px); border-bottom: 1px solid rgba(20,20,20,0.18)">
+<div class="rrow reveal" style="border-top: 1px solid rgba(20,20,20,0.18); padding: 32px clamp(16px, 3vw, 48px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 10px 32px">
+<span style="flex: 0 0 72px; display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; line-height: 1; height: calc(clamp(28px, 3.6vw, 56px) * 1.02)"><span class="rdot glow" aria-hidden="true" style="display: block; width: 10px; height: 10px; border-radius: 50%; flex: none"></span>01</span>
+<h3 style="flex: 1 1 440px; margin: 0; font-size: clamp(28px, 3.6vw, 56px); line-height: 1.02; font-weight: 500; letter-spacing: -0.045em">Code generation</h3>
+<p class="rdesc" style="flex: 1 1 300px; margin: 0; max-width: 440px; text-wrap: pretty">Improving how language models generate code and understanding where they fail, with the goal of making the code they produce more reliable</p>
+</div>
+<div class="rrow reveal" style="border-top: 1px solid rgba(20,20,20,0.18); padding: 32px clamp(16px, 3vw, 48px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 10px 32px">
+<span style="flex: 0 0 72px; display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; line-height: 1; height: calc(clamp(28px, 3.6vw, 56px) * 1.02)"><span class="rdot glow" aria-hidden="true" style="display: block; width: 10px; height: 10px; border-radius: 50%; flex: none"></span>02</span>
+<h3 style="flex: 1 1 440px; margin: 0; font-size: clamp(28px, 3.6vw, 56px); line-height: 1.02; font-weight: 500; letter-spacing: -0.045em">Agentic coding</h3>
+<p class="rdesc" style="flex: 1 1 300px; margin: 0; max-width: 440px; text-wrap: pretty">Evaluating how LLM-based agents handle larger, multi-step software engineering tasks, and what limits them in real projects</p>
+</div>
+<div class="rrow reveal" style="border-top: 1px solid rgba(20,20,20,0.18); padding: 32px clamp(16px, 3vw, 48px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 10px 32px">
+<span style="flex: 0 0 72px; display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; line-height: 1; height: calc(clamp(28px, 3.6vw, 56px) * 1.02)"><span class="rdot glow" aria-hidden="true" style="display: block; width: 10px; height: 10px; border-radius: 50%; flex: none"></span>03</span>
+<h3 style="flex: 1 1 440px; margin: 0; font-size: clamp(28px, 3.6vw, 56px); line-height: 1.02; font-weight: 500; letter-spacing: -0.045em">Interpretability</h3>
+<p class="rdesc" style="flex: 1 1 300px; margin: 0; max-width: 440px; text-wrap: pretty">Interpreting the internal representations of language models to understand what they encode about code and how that relates to their behavior</p>
+</div>
+<div class="rrow reveal" style="border-top: 1px solid rgba(20,20,20,0.18); padding: 32px clamp(16px, 3vw, 48px); display: flex; flex-wrap: wrap; align-items: flex-start; gap: 10px 32px">
+<span style="flex: 0 0 72px; display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 500; line-height: 1; height: calc(clamp(28px, 3.6vw, 56px) * 1.02)"><span class="rdot glow" aria-hidden="true" style="display: block; width: 10px; height: 10px; border-radius: 50%; flex: none"></span>04</span>
+<h3 style="flex: 1 1 440px; margin: 0; font-size: clamp(28px, 3.6vw, 56px); line-height: 1.02; font-weight: 500; letter-spacing: -0.045em">Reinforcement learning</h3>
+<p class="rdesc" style="flex: 1 1 300px; margin: 0; max-width: 440px; text-wrap: pretty">Using reinforcement learning to strengthen the reasoning abilities of language models, and studying how reward signals shape the code they produce</p>
+</div>
+</div>
+</section>
+
+<section id="papers" class="hs gblue" aria-labelledby="papers-h" style="position: relative; color: #FFFFFF">
+<div class="hs-sticky" style="display: flex; flex-direction: column; justify-content: flex-start; gap: clamp(16px, min(4vw, 4svh), 48px); padding: clamp(68px, 11svh, 96px) 0 clamp(28px, 5svh, 56px); box-sizing: border-box">
+<div style="padding: 0 clamp(16px, 3vw, 48px); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 32px">
+<h2 id="papers-h" style="margin: 0; font-size: clamp(44px, min(8.6vw, 13svh), 156px); line-height: 0.88; font-weight: 500; letter-spacing: -0.055em">Papers</h2>
+<div class="hs-hint" style="display: flex; flex-direction: column; gap: 10px; width: min(320px, 100%); padding-bottom: 10px">
+<span style="font-size: 15px; font-weight: 500">Keep scrolling</span>
+<span aria-hidden="true" style="display: block; height: 2px; background: rgba(255,255,255,0.3)"><span class="hs-bar" style="display: block; height: 2px; background: #FFFFFF"></span></span>
+</div>
+</div>
+<div class="hs-track" style="flex: 1; min-height: 0; display: flex; gap: 24px; width: max-content; padding: 0 clamp(16px, 3vw, 48px)">
+
+<article style="width: min(84vw, 540px); flex: none; background: #F2F2F0; color: #141414; border-radius: 24px; overflow: clip; display: flex; flex-direction: column">
+<div class="glow" style="flex: 0 1 38%; min-height: 72px; padding: 24px 28px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: flex-start">
+<span style="font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 999px; background: #F2F2F0">ICSE 2027 · Research Track</span>
+<span style="font-size: clamp(40px, 8svh, 64px); line-height: 0.8; font-weight: 600; letter-spacing: -0.05em">01</span>
+</div>
+<div style="flex: 1; padding: clamp(18px, 3svh, 28px) 28px clamp(22px, 3.5svh, 32px); display: flex; flex-direction: column; gap: clamp(10px, 2svh, 20px)">
+<h3 style="margin: 0; font-size: clamp(22px, min(2.6vw, 4.6svh), 40px); line-height: 1.05; font-weight: 500; letter-spacing: -0.04em; text-wrap: balance"><a href="https://arxiv.org/abs/2608.08266" data-cursor="Read ↗" style="text-decoration: none" target="_blank" rel="noopener">On the Robustness of LLMs' Internal Representation of Code Correctness</a></h3>
+<p style="margin: 0; font-size: 16px; color: #55554F">Francisco Ribeiro, <strong style="color: #141414; font-weight: 600">Sohaila Abdulsattar</strong>, Renata Gonzalez, Mahmoud Kassem, Sarah Nadi</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto">
+<a class="pill" href="https://arxiv.org/abs/2608.08266" style="font-size: 15px; font-weight: 500; padding: 11px 18px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; border: 1px solid #141414; border-radius: 999px" target="_blank" rel="noopener">arXiv ↗</a>
+<a class="pill" href="https://arxiv.org/pdf/2608.08266" style="font-size: 15px; font-weight: 500; padding: 11px 18px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; border: 1px solid #141414; border-radius: 999px" target="_blank" rel="noopener">PDF ↗</a>
+</div>
+</div>
+</article>
+
+<article style="width: min(84vw, 540px); flex: none; background: #F2F2F0; color: #141414; border-radius: 24px; overflow: clip; display: flex; flex-direction: column">
+<div class="glow" style="animation-delay: -8s; flex: 0 1 38%; min-height: 72px; padding: 24px 28px; box-sizing: border-box; display: flex; justify-content: space-between; align-items: flex-start">
+<span style="font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 999px; background: #F2F2F0">EACL 2026 · AbjadNLP Workshop</span>
+<span style="font-size: clamp(40px, 8svh, 64px); line-height: 0.8; font-weight: 600; letter-spacing: -0.05em">02</span>
+</div>
+<div style="flex: 1; padding: clamp(18px, 3svh, 28px) 28px clamp(22px, 3.5svh, 32px); display: flex; flex-direction: column; gap: clamp(10px, 2svh, 20px)">
+<h3 style="margin: 0; font-size: clamp(22px, min(2.6vw, 4.6svh), 40px); line-height: 1.05; font-weight: 500; letter-spacing: -0.04em; text-wrap: balance"><a href="https://aclanthology.org/2026.abjadnlp-1.11/" data-cursor="Read ↗" style="text-decoration: none" target="_blank" rel="noopener">Arabic Dialect Translation with Small LLMs: Enhancing through Reasoning-Oriented Reinforcement Learning</a></h3>
+<p style="margin: 0; font-size: 16px; color: #55554F"><strong style="color: #141414; font-weight: 600">Sohaila Abdulsattar</strong>, Keith Ross</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto">
+<a class="pill" href="https://aclanthology.org/2026.abjadnlp-1.11/" style="font-size: 15px; font-weight: 500; padding: 11px 18px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; border: 1px solid #141414; border-radius: 999px" target="_blank" rel="noopener">ACL Anthology ↗</a>
+<a class="pill" href="https://aclanthology.org/2026.abjadnlp-1.11.pdf" style="font-size: 15px; font-weight: 500; padding: 11px 18px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; border: 1px solid #141414; border-radius: 999px" target="_blank" rel="noopener">PDF ↗</a>
+</div>
+</div>
+</article>
+
+<article style="width: min(84vw, 540px); flex: none; background: #F2F2F0; color: #141414; border-radius: 24px; overflow: clip; display: flex; flex-direction: column">
+<div class="glow" aria-hidden="true" style="animation-delay: -4s; flex: 0 1 38%; min-height: 72px"></div>
+<div style="flex: 1; padding: clamp(18px, 3svh, 28px) 28px clamp(22px, 3.5svh, 32px); display: flex; flex-direction: column; justify-content: flex-end; gap: clamp(10px, 2svh, 20px)">
+<h3 class="glow cut" style="align-self: flex-start; margin: 0; font-size: clamp(28px, 4.6vw, 52px); line-height: 0.95; font-weight: 600; letter-spacing: -0.05em; white-space: nowrap; padding: 0.04em 0.12em 0.1em 0">And more to come!</h3>
+<p style="margin: 0; font-size: 16px; color: #55554F; max-width: 460px">New work is on the way. If you'd like to collaborate or talk research, I'd love to hear from you!</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto">
+<a class="pill" href="#contact" style="font-size: 15px; font-weight: 500; padding: 11px 18px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; border: 1px solid #141414; border-radius: 999px">Get in touch ↓</a>
+</div>
+</div>
+</article>
+
+
+</div>
+</div>
+</section>
+
+<section id="news" aria-labelledby="news-h" style="padding: clamp(96px, 11vw, 176px) clamp(16px, 3vw, 48px) 0">
+<div style="display: flex; flex-wrap: wrap; gap: 32px 48px">
+<div style="flex: 1 1 280px; min-width: 0">
+<div class="news-stick" style="position: sticky; top: 120px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; align-items: flex-start; gap: 10px">
+<span class="glow" aria-hidden="true" style="display: block; width: 12px; height: 12px; border-radius: 50%; margin-top: 5px; flex: none"></span>
+<h2 id="news-h" style="margin: 0; font-size: 15px; font-weight: 500">Latest news</h2>
+</div>
+<div class="nd-wrap" aria-hidden="true"><div class="nd">
+<span class="nd-l" style="--l: 0"><span class="nd-m glow cut">Oct</span></span>
+<span class="nd-l" style="--l: 1"><span class="nd-m glow cut">Sep</span></span>
+<span class="nd-l" style="--l: 2"><span class="nd-m glow cut">May</span></span>
+<span class="nd-l" style="--l: 3"><span class="nd-m glow cut">Jan</span></span>
+</div><div class="ndd">
+<span class="ndd-l" style="--l: 0">Oct 29, 2026</span>
+<span class="ndd-l" style="--l: 1">Sep 29, 2026</span>
+<span class="ndd-l" style="--l: 2">Sep 2, 2026</span>
+<span class="ndd-l" style="--l: 3">May 20, 2026</span>
+<span class="ndd-l" style="--l: 4">Jan 27, 2026</span>
+</div></div>
+</div>
+</div>
+<div style="flex: 3 1 560px; min-width: 0; display: flex; flex-direction: column">
+<a class="ni" data-news="0" style="--l: 0" data-ng="0" href="https://arxiv.org/abs/2608.08266" target="_blank" rel="noopener">
+<span class="ni-tag"><span>Paper</span><span class="ni-date">Oct 29, 2026</span></span>
+<h3>Paper accepted at ICSE 2027</h3>
+<p>"On the Robustness of LLMs' Internal Representation of Code Correctness" will appear in the ICSE 2027 Research Track.</p>
+<span class="ni-go" aria-hidden="true"><span>↗</span></span></a>
+<div class="ni" data-news="1" style="--l: 1" data-ng="1">
+<span class="ni-tag"><span>Community</span><span class="ni-date">Sep 29, 2026</span></span>
+<h3>Joined the board of NYU Women in CS</h3>
+<p>A student organization that builds community and support for underrepresented groups in NYU's CS PhD program.</p>
+</div>
+<div class="ni" data-news="2" style="--l: 2" data-ng="1">
+<span class="ni-tag"><span>Milestone</span><span class="ni-date">Sep 2, 2026</span></span>
+<h3>Started my PhD at NYU</h3>
+<p>Joined the SANAD Lab, starting the program in New York.</p>
+</div>
+<div class="ni" data-news="3" style="--l: 3" data-ng="2">
+<span class="ni-tag"><span>Milestone</span><span class="ni-date">May 20, 2026</span></span>
+<h3>Graduated summa cum laude from NYU Abu Dhabi</h3>
+<p>Bachelor of Science in Computer Science, with a minor in Applied Mathematics.</p>
+</div>
+<a class="ni" data-news="4" style="--l: 4" data-ng="3" hidden="" href="https://aclanthology.org/2026.abjadnlp-1.11/" target="_blank" rel="noopener">
+<span class="ni-tag"><span>Paper</span><span class="ni-date">Jan 27, 2026</span></span>
+<h3>Paper accepted at the AbjadNLP Workshop at EACL 2026</h3>
+<p>"Arabic Dialect Translation with Small LLMs: Enhancing through Reasoning-Oriented Reinforcement Learning," published in the EACL 2026 workshop proceedings.</p>
+<span class="ni-go" aria-hidden="true"><span>↗</span></span></a>
+<button type="button" class="nmore" data-nmore="" aria-expanded="false"><span class="nmore-all">See more <span data-nleft="">(1 more)</span> ↓</span><span class="nmore-less">Show fewer ↑</span></button>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="also-h" style="padding: clamp(96px, 11vw, 176px) 0; overflow: clip">
+<div style="padding: 0 clamp(16px, 3vw, 48px); display: flex; flex-direction: column; gap: clamp(48px, 6vw, 96px)">
+<h2 id="also-h" style="margin: 0; font-size: clamp(52px, 8.6vw, 156px); line-height: 0.9; font-weight: 500; letter-spacing: -0.055em"><span class="mask"><span class="up">Outside<br>the lab</span></span></h2>
+<div style="min-width: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 40px 32px">
+
+<div class="reveal otl" style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid rgba(20,20,20,0.18); padding-top: 18px">
+<span style="font-size: 15px; font-weight: 500; color: #55554F">Design</span>
+<h3 style="margin: 0; font-size: 30px; line-height: 1.05; font-weight: 500; letter-spacing: -0.04em">Graphic design</h3>
+<p style="margin: 0; color: #55554F; text-wrap: pretty">I've always had an eye for design, and I'll take any excuse to make something look elegant. It's also why this website turned out pretty cool, if I do say so myself ;)</p>
+</div>
+<div class="reveal otl" style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid rgba(20,20,20,0.18); padding-top: 18px">
+<span style="font-size: 15px; font-weight: 500; color: #55554F">Sports</span>
+<h3 style="margin: 0; font-size: 30px; line-height: 1.05; font-weight: 500; letter-spacing: -0.04em">Badminton</h3>
+<p style="margin: 0; color: #55554F; text-wrap: pretty">Badminton is the one sport I've actually gotten better at. I'm still not especially great, but I take it as seriously as someone who is.</p>
+</div>
+<div class="reveal otl" style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid rgba(20,20,20,0.18); padding-top: 18px">
+<span style="font-size: 15px; font-weight: 500; color: #55554F">Gaming</span>
+<h3 style="margin: 0; font-size: 30px; line-height: 1.05; font-weight: 500; letter-spacing: -0.04em">Minecraft</h3>
+<p style="margin: 0; color: #55554F; text-wrap: pretty">I've loved Minecraft since I was a kid and somehow never grew out of it. These days I watch more than I play, and I love finding out about new mods.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="contact" aria-labelledby="contact-h" style="background: #141414; color: #F2F2F0; padding: clamp(96px, 11vw, 176px) clamp(16px, 3vw, 48px) 0">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 56px 64px">
+<h2 id="contact-h" class="spot" data-spot="1" style="margin: 0; font-size: clamp(72px, 13vw, 240px); line-height: 0.88; font-weight: 600; letter-spacing: -0.06em; padding-bottom: 0.06em">Say<br>hello.</h2>
+<ul style="list-style: none; margin: 0; padding: 0; flex: 0 1 520px; min-width: 0; border-bottom: 1px solid rgba(242,242,240,0.25)">
+<li style="border-top: 1px solid rgba(242,242,240,0.25)"><a class="clink" href="mailto:sohaila.abdulsattar@nyu.edu" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; letter-spacing: -0.03em; overflow-wrap: anywhere"><span class="clink-t">sohaila.abdulsattar@nyu.edu</span><span aria-hidden="true">↗</span></a></li>
+<li style="border-top: 1px solid rgba(242,242,240,0.25)"><a class="clink" href="https://www.linkedin.com/in/sohaila-abdulsattar/" target="_blank" rel="noopener" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; letter-spacing: -0.03em"><span class="clink-t">LinkedIn</span><span aria-hidden="true">↗</span></a></li>
+<li style="border-top: 1px solid rgba(242,242,240,0.25)"><a class="clink" href="https://scholar.google.com/citations?user=tK4FVscAAAAJ&amp;hl=en" target="_blank" rel="noopener" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; letter-spacing: -0.03em"><span class="clink-t">Google Scholar</span><span aria-hidden="true">↗</span></a></li>
+<li style="border-top: 1px solid rgba(242,242,240,0.25)"><a class="clink" href="https://github.com/Sohaila-Abdulsattar" target="_blank" rel="noopener" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; letter-spacing: -0.03em"><span class="clink-t">GitHub</span><span aria-hidden="true">↗</span></a></li>
+<li style="border-top: 1px solid rgba(242,242,240,0.25)"><a class="clink" href="Sohaila_Abdulsattar_CV.pdf" target="_blank" rel="noopener" style="display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 0; font-size: clamp(22px, 2.2vw, 30px); font-weight: 500; letter-spacing: -0.03em"><span class="clink-t">CV</span><span aria-hidden="true">↗</span></a></li>
+</ul>
+</div>
+<footer style="margin-top: clamp(96px, 10vw, 160px); border-top: 1px solid rgba(242,242,240,0.25); padding: 20px 0 28px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: 15px; font-weight: 500; color: rgba(242,242,240,0.75)">
+<span>© 2026 Sohaila Abdulsattar</span>
+<span>New York / Abu Dhabi</span>
+<a href="#top" style="text-decoration: none; color: #F2F2F0">Back to top ↑</a>
+</footer>
+</section>
+
+</div>
+
+<script>
+class DCLogic { constructor(props) { this.props = props || {}; } }
+class Component extends DCLogic {
+  static getLenis() {
+    if (Component._lenisClass !== undefined) return Component._lenisClass;
+    try {
+      Component._lenisClass = (function () {
+function t(t,e,i){return Math.max(t,Math.min(e,i))}var e=class{isRunning=!1;value=0;from=0;to=0;currentTime=0;lerp;duration;easing;onUpdate;advance(e){if(!this.isRunning)return;let i=!1;if(this.duration&&this.easing){this.currentTime+=e;const s=t(0,this.currentTime/this.duration,1);i=s>=1;const o=i?1:this.easing(s);this.value=this.from+(this.to-this.from)*o}else this.lerp?(this.value=function(t,e,i,s){return function(t,e,i){return(1-i)*t+i*e}(t,e,1-Math.exp(-i*s))}(this.value,this.to,60*this.lerp,e),Math.round(this.value)===this.to&&(this.value=this.to,i=!0)):(this.value=this.to,i=!0);i&&this.stop(),this.onUpdate?.(this.value,i)}stop(){this.isRunning=!1}fromTo(t,e,{lerp:i,duration:s,easing:o,onStart:n,onUpdate:r}){this.from=this.value=t,this.to=e,this.lerp=i,this.duration=s,this.easing=o,this.currentTime=0,this.isRunning=!0,n?.(),this.onUpdate=r}};var i=class{constructor(t,e,{autoResize:i=!0,debounce:s=250}={}){this.wrapper=t,this.content=e,i&&(this.debouncedResize=function(t,e){let i;return function(...s){let o=this;clearTimeout(i),i=setTimeout((()=>{i=void 0,t.apply(o,s)}),e)}}(this.resize,s),this.wrapper instanceof Window?window.addEventListener("resize",this.debouncedResize,!1):(this.wrapperResizeObserver=new ResizeObserver(this.debouncedResize),this.wrapperResizeObserver.observe(this.wrapper)),this.contentResizeObserver=new ResizeObserver(this.debouncedResize),this.contentResizeObserver.observe(this.content)),this.resize()}width=0;height=0;scrollHeight=0;scrollWidth=0;debouncedResize;wrapperResizeObserver;contentResizeObserver;destroy(){this.wrapperResizeObserver?.disconnect(),this.contentResizeObserver?.disconnect(),this.wrapper===window&&this.debouncedResize&&window.removeEventListener("resize",this.debouncedResize,!1)}resize=()=>{this.onWrapperResize(),this.onContentResize()};onWrapperResize=()=>{this.wrapper instanceof Window?(this.width=window.innerWidth,this.height=window.innerHeight):(this.width=this.wrapper.clientWidth,this.height=this.wrapper.clientHeight)};onContentResize=()=>{this.wrapper instanceof Window?(this.scrollHeight=this.content.scrollHeight,this.scrollWidth=this.content.scrollWidth):(this.scrollHeight=this.wrapper.scrollHeight,this.scrollWidth=this.wrapper.scrollWidth)};get limit(){return{x:this.scrollWidth-this.width,y:this.scrollHeight-this.height}}},s=class{events={};emit(t,...e){let i=this.events[t]||[];for(let t=0,s=i.length;t<s;t++)i[t]?.(...e)}on(t,e){return this.events[t]?.push(e)||(this.events[t]=[e]),()=>{this.events[t]=this.events[t]?.filter((t=>e!==t))}}off(t,e){this.events[t]=this.events[t]?.filter((t=>e!==t))}destroy(){this.events={}}},o=100/6,n={passive:!1},r=class{constructor(t,e={wheelMultiplier:1,touchMultiplier:1}){this.element=t,this.options=e,window.addEventListener("resize",this.onWindowResize,!1),this.onWindowResize(),this.element.addEventListener("wheel",this.onWheel,n),this.element.addEventListener("touchstart",this.onTouchStart,n),this.element.addEventListener("touchmove",this.onTouchMove,n),this.element.addEventListener("touchend",this.onTouchEnd,n)}touchStart={x:0,y:0};lastDelta={x:0,y:0};window={width:0,height:0};emitter=new s;on(t,e){return this.emitter.on(t,e)}destroy(){this.emitter.destroy(),window.removeEventListener("resize",this.onWindowResize,!1),this.element.removeEventListener("wheel",this.onWheel,n),this.element.removeEventListener("touchstart",this.onTouchStart,n),this.element.removeEventListener("touchmove",this.onTouchMove,n),this.element.removeEventListener("touchend",this.onTouchEnd,n)}onTouchStart=t=>{const{clientX:e,clientY:i}=t.targetTouches?t.targetTouches[0]:t;this.touchStart.x=e,this.touchStart.y=i,this.lastDelta={x:0,y:0},this.emitter.emit("scroll",{deltaX:0,deltaY:0,event:t})};onTouchMove=t=>{const{clientX:e,clientY:i}=t.targetTouches?t.targetTouches[0]:t,s=-(e-this.touchStart.x)*this.options.touchMultiplier,o=-(i-this.touchStart.y)*this.options.touchMultiplier;this.touchStart.x=e,this.touchStart.y=i,this.lastDelta={x:s,y:o},this.emitter.emit("scroll",{deltaX:s,deltaY:o,event:t})};onTouchEnd=t=>{this.emitter.emit("scroll",{deltaX:this.lastDelta.x,deltaY:this.lastDelta.y,event:t})};onWheel=t=>{let{deltaX:e,deltaY:i,deltaMode:s}=t;e*=1===s?o:2===s?this.window.width:1,i*=1===s?o:2===s?this.window.height:1,e*=this.options.wheelMultiplier,i*=this.options.wheelMultiplier,this.emitter.emit("scroll",{deltaX:e,deltaY:i,event:t})};onWindowResize=()=>{this.window={width:window.innerWidth,height:window.innerHeight}}},l=t=>Math.min(1,1.001-Math.pow(2,-10*t)),Lenis=class{_isScrolling=!1;_isStopped=!1;_isLocked=!1;_preventNextNativeScrollEvent=!1;_resetVelocityTimeout=null;__rafID=null;isTouching;time=0;userData={};lastVelocity=0;velocity=0;direction=0;options;targetScroll;animatedScroll;animate=new e;emitter=new s;dimensions;virtualScroll;constructor({wrapper:t=window,content:e=document.documentElement,eventsTarget:s=t,smoothWheel:o=!0,syncTouch:n=!1,syncTouchLerp:h=.075,touchInertiaMultiplier:a=35,duration:c,easing:p,lerp:d=.1,infinite:u=!1,orientation:m="vertical",gestureOrientation:v="vertical",touchMultiplier:g=1,wheelMultiplier:w=1,autoResize:S=!0,prevent:f,virtualScroll:y,overscroll:E=!0,autoRaf:T=!1,anchors:z=!1,autoToggle:b=!1,allowNestedScroll:_=!1,__experimental__naiveDimensions:L=!1}={}){window.lenisVersion="1.3.4",t&&t!==document.documentElement||(t=window),"number"==typeof c&&"function"!=typeof p?p=l:"function"==typeof p&&"number"!=typeof c&&(c=1),this.options={wrapper:t,content:e,eventsTarget:s,smoothWheel:o,syncTouch:n,syncTouchLerp:h,touchInertiaMultiplier:a,duration:c,easing:p,lerp:d,infinite:u,gestureOrientation:v,orientation:m,touchMultiplier:g,wheelMultiplier:w,autoResize:S,prevent:f,virtualScroll:y,overscroll:E,autoRaf:T,anchors:z,autoToggle:b,allowNestedScroll:_,__experimental__naiveDimensions:L},this.dimensions=new i(t,e,{autoResize:S}),this.updateClassName(),this.targetScroll=this.animatedScroll=this.actualScroll,this.options.wrapper.addEventListener("scroll",this.onNativeScroll,!1),this.options.wrapper.addEventListener("scrollend",this.onScrollEnd,{capture:!0}),this.options.anchors&&this.options.wrapper===window&&this.options.wrapper.addEventListener("click",this.onClick,!1),this.options.wrapper.addEventListener("pointerdown",this.onPointerDown,!1),this.virtualScroll=new r(s,{touchMultiplier:g,wheelMultiplier:w}),this.virtualScroll.on("scroll",this.onVirtualScroll),this.options.autoToggle&&this.rootElement.addEventListener("transitionend",this.onTransitionEnd,{passive:!0}),this.options.autoRaf&&(this.__rafID=requestAnimationFrame(this.raf))}destroy(){this.emitter.destroy(),this.options.wrapper.removeEventListener("scroll",this.onNativeScroll,!1),this.options.wrapper.removeEventListener("scrollend",this.onScrollEnd,{capture:!0}),this.options.wrapper.removeEventListener("pointerdown",this.onPointerDown,!1),this.options.anchors&&this.options.wrapper===window&&this.options.wrapper.removeEventListener("click",this.onClick,!1),this.virtualScroll.destroy(),this.dimensions.destroy(),this.cleanUpClassName(),this.__rafID&&cancelAnimationFrame(this.__rafID)}on(t,e){return this.emitter.on(t,e)}off(t,e){return this.emitter.off(t,e)}onScrollEnd=t=>{t instanceof CustomEvent||"smooth"!==this.isScrolling&&!1!==this.isScrolling||t.stopPropagation()};dispatchScrollendEvent=()=>{this.options.wrapper.dispatchEvent(new CustomEvent("scrollend",{bubbles:this.options.wrapper===window,detail:{lenisScrollEnd:!0}}))};onTransitionEnd=t=>{if(t.propertyName.includes("overflow")){const t=this.isHorizontal?"overflow-x":"overflow-y",e=getComputedStyle(this.rootElement)[t];["hidden","clip"].includes(e)?this.stop():this.start()}};setScroll(t){this.isHorizontal?this.options.wrapper.scrollTo({left:t,behavior:"instant"}):this.options.wrapper.scrollTo({top:t,behavior:"instant"})}onClick=t=>{const e=t.composedPath().find((t=>t instanceof HTMLAnchorElement&&(t.getAttribute("href")?.startsWith("#")||t.getAttribute("href")?.startsWith("/#")||t.getAttribute("href")?.startsWith("./#"))));if(e){const t=e.getAttribute("href");if(t){const e="object"==typeof this.options.anchors&&this.options.anchors?this.options.anchors:void 0;let i=`#${t.split("#")[1]}`;["#","/#","./#","#top","/#top","./#top"].includes(t)&&(i=0),this.scrollTo(i,e)}}};onPointerDown=t=>{1===t.button&&this.reset()};onVirtualScroll=t=>{if("function"==typeof this.options.virtualScroll&&!1===this.options.virtualScroll(t))return;const{deltaX:e,deltaY:i,event:s}=t;if(this.emitter.emit("virtual-scroll",{deltaX:e,deltaY:i,event:s}),s.ctrlKey)return;if(s.lenisStopPropagation)return;const o=s.type.includes("touch"),n=s.type.includes("wheel");this.isTouching="touchstart"===s.type||"touchmove"===s.type;const r=0===e&&0===i;if(this.options.syncTouch&&o&&"touchstart"===s.type&&r&&!this.isStopped&&!this.isLocked)return void this.reset();const l="vertical"===this.options.gestureOrientation&&0===i||"horizontal"===this.options.gestureOrientation&&0===e;if(r||l)return;let h=s.composedPath();h=h.slice(0,h.indexOf(this.rootElement));const a=this.options.prevent;if(h.find((t=>t instanceof HTMLElement&&("function"==typeof a&&a?.(t)||t.hasAttribute?.("data-lenis-prevent")||o&&t.hasAttribute?.("data-lenis-prevent-touch")||n&&t.hasAttribute?.("data-lenis-prevent-wheel")||this.options.allowNestedScroll&&this.checkNestedScroll(t,{deltaX:e,deltaY:i})))))return;if(this.isStopped||this.isLocked)return void s.preventDefault();if(!(this.options.syncTouch&&o||this.options.smoothWheel&&n))return this.isScrolling="native",this.animate.stop(),void(s.lenisStopPropagation=!0);let c=i;"both"===this.options.gestureOrientation?c=Math.abs(i)>Math.abs(e)?i:e:"horizontal"===this.options.gestureOrientation&&(c=e),(!this.options.overscroll||this.options.infinite||this.options.wrapper!==window&&(this.animatedScroll>0&&this.animatedScroll<this.limit||0===this.animatedScroll&&i>0||this.animatedScroll===this.limit&&i<0))&&(s.lenisStopPropagation=!0),s.preventDefault();const p=o&&this.options.syncTouch,d=o&&"touchend"===s.type&&Math.abs(c)>5;d&&(c=this.velocity*this.options.touchInertiaMultiplier),this.scrollTo(this.targetScroll+c,{programmatic:!1,...p?{lerp:d?this.options.syncTouchLerp:1}:{lerp:this.options.lerp,duration:this.options.duration,easing:this.options.easing}})};resize(){this.dimensions.resize(),this.animatedScroll=this.targetScroll=this.actualScroll,this.emit()}emit(){this.emitter.emit("scroll",this)}onNativeScroll=()=>{if(null!==this._resetVelocityTimeout&&(clearTimeout(this._resetVelocityTimeout),this._resetVelocityTimeout=null),this._preventNextNativeScrollEvent)this._preventNextNativeScrollEvent=!1;else if(!1===this.isScrolling||"native"===this.isScrolling){const t=this.animatedScroll;this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity,this.velocity=this.animatedScroll-t,this.direction=Math.sign(this.animatedScroll-t),this.isStopped||(this.isScrolling="native"),this.emit(),0!==this.velocity&&(this._resetVelocityTimeout=setTimeout((()=>{this.lastVelocity=this.velocity,this.velocity=0,this.isScrolling=!1,this.emit()}),400))}};reset(){this.isLocked=!1,this.isScrolling=!1,this.animatedScroll=this.targetScroll=this.actualScroll,this.lastVelocity=this.velocity=0,this.animate.stop()}start(){this.isStopped&&(this.reset(),this.isStopped=!1,this.emit())}stop(){this.isStopped||(this.reset(),this.isStopped=!0,this.emit())}raf=t=>{const e=t-(this.time||t);this.time=t,this.animate.advance(.001*e),this.options.autoRaf&&(this.__rafID=requestAnimationFrame(this.raf))};scrollTo(e,{offset:i=0,immediate:s=!1,lock:o=!1,duration:n=this.options.duration,easing:r=this.options.easing,lerp:h=this.options.lerp,onStart:a,onComplete:c,force:p=!1,programmatic:d=!0,userData:u}={}){if(!this.isStopped&&!this.isLocked||p){if("string"==typeof e&&["top","left","start"].includes(e))e=0;else if("string"==typeof e&&["bottom","right","end"].includes(e))e=this.limit;else{let t;if("string"==typeof e?t=document.querySelector(e):e instanceof HTMLElement&&e?.nodeType&&(t=e),t){if(this.options.wrapper!==window){const t=this.rootElement.getBoundingClientRect();i-=this.isHorizontal?t.left:t.top}const s=t.getBoundingClientRect();e=(this.isHorizontal?s.left:s.top)+this.animatedScroll}}if("number"==typeof e){if(e+=i,e=Math.round(e),this.options.infinite){if(d){this.targetScroll=this.animatedScroll=this.scroll;const t=e-this.animatedScroll;t>this.limit/2?e-=this.limit:t<-this.limit/2&&(e+=this.limit)}}else e=t(0,e,this.limit);if(e===this.targetScroll)return a?.(this),void c?.(this);if(this.userData=u??{},s)return this.animatedScroll=this.targetScroll=e,this.setScroll(this.scroll),this.reset(),this.preventNextNativeScrollEvent(),this.emit(),c?.(this),this.userData={},void requestAnimationFrame((()=>{this.dispatchScrollendEvent()}));d||(this.targetScroll=e),"number"==typeof n&&"function"!=typeof r?r=l:"function"==typeof r&&"number"!=typeof n&&(n=1),this.animate.fromTo(this.animatedScroll,e,{duration:n,easing:r,lerp:h,onStart:()=>{o&&(this.isLocked=!0),this.isScrolling="smooth",a?.(this)},onUpdate:(t,e)=>{this.isScrolling="smooth",this.lastVelocity=this.velocity,this.velocity=t-this.animatedScroll,this.direction=Math.sign(this.velocity),this.animatedScroll=t,this.setScroll(this.scroll),d&&(this.targetScroll=t),e||this.emit(),e&&(this.reset(),this.emit(),c?.(this),this.userData={},requestAnimationFrame((()=>{this.dispatchScrollendEvent()})),this.preventNextNativeScrollEvent())}})}}}preventNextNativeScrollEvent(){this._preventNextNativeScrollEvent=!0,requestAnimationFrame((()=>{this._preventNextNativeScrollEvent=!1}))}checkNestedScroll(t,{deltaX:e,deltaY:i}){const s=Date.now(),o=t._lenis??={};let n,r,l,h,a,c,p,d;const u=this.options.gestureOrientation;if(s-(o.time??0)>2e3){o.time=Date.now();const e=window.getComputedStyle(t);o.computedStyle=e;const i=e.overflowX,s=e.overflowY;if(n=["auto","overlay","scroll"].includes(i),r=["auto","overlay","scroll"].includes(s),o.hasOverflowX=n,o.hasOverflowY=r,!n&&!r)return!1;if("vertical"===u&&!r)return!1;if("horizontal"===u&&!n)return!1;a=t.scrollWidth,c=t.scrollHeight,p=t.clientWidth,d=t.clientHeight,l=a>p,h=c>d,o.isScrollableX=l,o.isScrollableY=h,o.scrollWidth=a,o.scrollHeight=c,o.clientWidth=p,o.clientHeight=d}else l=o.isScrollableX,h=o.isScrollableY,n=o.hasOverflowX,r=o.hasOverflowY,a=o.scrollWidth,c=o.scrollHeight,p=o.clientWidth,d=o.clientHeight;if(!n&&!r||!l&&!h)return!1;if(!("vertical"!==u||r&&h))return!1;if(!("horizontal"!==u||n&&l))return!1;let m,v,g,w,S,f;if("horizontal"===u)m="x";else if("vertical"===u)m="y";else{0!==e&&n&&l&&(m="x"),0!==i&&r&&h&&(m="y")}if(!m)return!1;if("x"===m)v=t.scrollLeft,g=a-p,w=e,S=n,f=l;else{if("y"!==m)return!1;v=t.scrollTop,g=c-d,w=i,S=r,f=h}return(w>0?v<g:v>0)&&S&&f}get rootElement(){return this.options.wrapper===window?document.documentElement:this.options.wrapper}get limit(){return this.options.__experimental__naiveDimensions?this.isHorizontal?this.rootElement.scrollWidth-this.rootElement.clientWidth:this.rootElement.scrollHeight-this.rootElement.clientHeight:this.dimensions.limit[this.isHorizontal?"x":"y"]}get isHorizontal(){return"horizontal"===this.options.orientation}get actualScroll(){const t=this.options.wrapper;return this.isHorizontal?t.scrollX??t.scrollLeft:t.scrollY??t.scrollTop}get scroll(){return this.options.infinite?(t=this.animatedScroll,e=this.limit,(t%e+e)%e):this.animatedScroll;var t,e}get progress(){return 0===this.limit?1:this.scroll/this.limit}get isScrolling(){return this._isScrolling}set isScrolling(t){this._isScrolling!==t&&(this._isScrolling=t,this.updateClassName())}get isStopped(){return this._isStopped}set isStopped(t){this._isStopped!==t&&(this._isStopped=t,this.updateClassName())}get isLocked(){return this._isLocked}set isLocked(t){this._isLocked!==t&&(this._isLocked=t,this.updateClassName())}get isSmooth(){return"smooth"===this.isScrolling}get className(){let t="lenis";return this.options.autoToggle&&(t+=" lenis-autoToggle"),this.isStopped&&(t+=" lenis-stopped"),this.isLocked&&(t+=" lenis-locked"),this.isScrolling&&(t+=" lenis-scrolling"),"smooth"===this.isScrolling&&(t+=" lenis-smooth"),t}updateClassName(){this.cleanUpClassName(),this.rootElement.className=`${this.rootElement.className} ${this.className}`.trim()}cleanUpClassName(){this.rootElement.className=this.rootElement.className.replace(/lenis(-\w+)?/g,"").trim()}};
+        return Lenis;
+      })();
+    } catch (e) { Component._lenisClass = null; }
+    return Component._lenisClass;
+  }
+  componentDidMount() {
+    var self = this;
+    this.active = false;
+    // The editor canvas draws the whole page in one very tall frame. "Play full screen" and the
+    // full-window view reuse that same frame and resize it to the window, so check on every resize.
+    this.onResizeCheck = function () { self.checkView(); };
+    window.addEventListener('resize', this.onResizeCheck);
+    this.checkView();
+  }
+  checkView() {
+    var h = window.innerHeight;
+    var real = h > 0 && h < 3000;
+    if (real && !this.active) this.activate();
+    else if (!real && this.active) this.deactivate();
+  }
+  activate() {
+    var self = this;
+    this.active = true;
+    try {
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+      var root = document.documentElement;
+      var ov = document.getElementById('lx-intro');
+      var useIntro = !!((this.props.showIntro ?? true) && !reduce && ov && ov.animate);
+      var LenisClass = reduce ? null : Component.getLenis();
+      if (LenisClass) {
+        this.lenis = new LenisClass({ autoRaf: true, lerp: 0.085, wheelMultiplier: 0.9, anchors: true });
+      }
+      if (useIntro) this.runIntro(ov);
+      else root.classList.remove('lx-pre');
+      var useCursor = this.props.customCursor ?? true;
+      var cur = document.getElementById('sa-cursor');
+      if (useCursor && cur) {
+        // on as soon as a real mouse or trackpad moves, whatever the device reports up front
+        var cursorOn = function () { root.classList.add('sa-has-cursor'); };
+        if (fine) cursorOn();
+        var x = -100, y = -100, cx = -100, cy = -100;
+        this.onMove = function (e) {
+          if (e.pointerType === 'touch' || e.pointerType === 'pen') return;
+          cursorOn();
+          x = e.clientX; y = e.clientY;
+          cur.style.opacity = '1';
+          var t = e.target && e.target.closest ? e.target.closest('[data-cursor], a, button') : null;
+          if (t && t.classList.contains('ni-dim')) t = null;
+          var mode = t ? (t.getAttribute('data-cursor') ? 'label' : 'link') : '';
+          if (cur.getAttribute('data-mode') !== mode) cur.setAttribute('data-mode', mode);
+          if (mode === 'label') cur.setAttribute('data-label', t.getAttribute('data-cursor'));
+        };
+        this.onLeave = function () { cur.style.opacity = '0'; };
+        var loop = function () {
+          cx += (x - cx) * (reduce ? 1 : 0.2);
+          cy += (y - cy) * (reduce ? 1 : 0.2);
+          cur.style.transform = 'translate3d(' + cx + 'px,' + cy + 'px,0)';
+          self.raf = requestAnimationFrame(loop);
+        };
+        window.addEventListener('pointermove', this.onMove, { passive: true });
+        root.addEventListener('mouseleave', this.onLeave);
+        loop();
+      }
+      var news = [].slice.call(document.querySelectorAll('[data-news]'));
+      if (news.length) {
+        // the shown item whose top has passed the upper-middle of the screen is the one being read
+        this.onNewsScroll = function () {
+          if (self.newsRaf) return;
+          self.newsRaf = requestAnimationFrame(function () {
+            self.newsRaf = 0;
+            var mid = window.innerHeight * 0.45, act = null;
+            news.forEach(function (n) { if (n.offsetParent !== null && n.getBoundingClientRect().top <= mid) act = n; });
+            if (act) { root.style.setProperty('--nk', act.getAttribute('data-news')); root.style.setProperty('--nm', act.getAttribute('data-ng') || act.getAttribute('data-news')); root.setAttribute('data-nactive', ''); }
+            else { root.style.setProperty('--nk', 0); root.style.setProperty('--nm', 0); root.removeAttribute('data-nactive'); }
+            news.forEach(function (n) { n.classList.toggle('ni-dim', !!act && n !== act); });
+          });
+        };
+        window.addEventListener('scroll', this.onNewsScroll, { passive: true });
+        this.onNewsScroll();
+        var more = document.querySelector('[data-nmore]');
+        if (more) {
+          // each click shows the next 4; once everything is out, the button folds the list back to the first 4
+          var PAGE = 4, shown = PAGE, left = more.querySelector('[data-nleft]');
+          // a newly shown item opens from zero height, so the list below it slides down instead of jumping
+          var grow = function (n) {
+            var cs = getComputedStyle(n), pt = cs.paddingTop, pb = cs.paddingBottom, h = n.offsetHeight;
+            n.style.transition = 'none'; n.style.overflow = 'clip'; n.style.boxSizing = 'border-box';
+            n.style.height = '0px'; n.style.paddingTop = '0px'; n.style.paddingBottom = '0px'; n.style.opacity = '0';
+            void n.offsetWidth;
+            var ease = '.75s cubic-bezier(.16,1,.3,1)';
+            n.style.transition = 'height ' + ease + ',padding ' + ease + ',opacity .6s .15s';
+            n.style.height = h + 'px'; n.style.paddingTop = pt; n.style.paddingBottom = pb; n.style.opacity = '';
+            var done = function (e) {
+              if (e && (e.target !== n || e.propertyName !== 'height')) return;
+              n.removeEventListener('transitionend', done);
+              ['transition', 'overflow', 'boxSizing', 'height', 'paddingTop', 'paddingBottom', 'opacity'].forEach(function (p) { n.style[p] = ''; });
+              if (self.lenis) self.lenis.resize();
+            };
+            n.addEventListener('transitionend', done);
+            setTimeout(done, 1000);
+          };
+          var paint = function (fresh) {
+            news.forEach(function (n, k) {
+              var was = n.hidden;
+              n.hidden = k >= shown;
+              // only the items that were hidden until now open up; the ones already showing stay put
+              if (fresh && was && !n.hidden) grow(n);
+            });
+            var rest = news.length - shown;
+            if (rest > 0) { root.removeAttribute('data-nall'); if (left) left.textContent = '(' + rest + ' more)'; }
+            else root.setAttribute('data-nall', '');
+            more.setAttribute('aria-expanded', rest > 0 ? 'false' : 'true');
+            if (self.lenis) self.lenis.resize();
+          };
+          this.onNewsMore = function () {
+            if (shown < news.length) { shown = Math.min(news.length, shown + PAGE); paint(true); }
+            else {
+              // fold back, keeping the button where it was on screen
+              var before = more.getBoundingClientRect().top;
+              shown = PAGE; paint(false);
+              var y = window.scrollY + (more.getBoundingClientRect().top - before);
+              if (self.lenis) self.lenis.scrollTo(y, { immediate: true, force: true }); else window.scrollTo(0, y);
+            }
+            self.onNewsScroll();
+          };
+          more.addEventListener('click', this.onNewsMore);
+          this.newsMoreBtn = more; this.newsAll = news;
+          paint(false);
+        }
+      }
+      // phone menu
+      var mbtn = document.querySelector('[data-menu]');
+      var mnav = document.getElementById('mnav');
+      if (mbtn && mnav) {
+        var setMenu = function (open) {
+          root.classList.toggle('mnav-on', open);
+          mbtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          mnav.setAttribute('aria-hidden', open ? 'false' : 'true');
+          if (self.lenis) { if (open) self.lenis.stop(); else self.lenis.start(); }
+          if (open && navigator.vibrate) { try { navigator.vibrate(8); } catch (e) {} }
+        };
+        this.onMenuBtn = function () { setMenu(!root.classList.contains('mnav-on')); };
+        this.onMenuLink = function (e) {
+          var a = e.currentTarget; a.classList.add('hit');
+          setTimeout(function () { a.classList.remove('hit'); }, 600);
+          // close first so the smooth scroll to the section is allowed to run
+          setMenu(false);
+        };
+        mbtn.addEventListener('click', this.onMenuBtn);
+        this.menuLinks = [].slice.call(mnav.querySelectorAll('a'));
+        this.menuLinks.forEach(function (a) { a.addEventListener('click', self.onMenuLink); });
+        this.menuBtn = mbtn;
+      }
+      // papers: only pin and ask to keep scrolling when some card is off screen
+      var hsTrack = document.querySelector('.hs-track');
+      if (hsTrack) {
+        this.onHsFit = function () {
+          var fits = hsTrack.scrollWidth <= window.innerWidth + 1;
+          if (fits !== root.hasAttribute('data-hs-fit')) {
+            if (fits) root.setAttribute('data-hs-fit', ''); else root.removeAttribute('data-hs-fit');
+            if (self.lenis) self.lenis.resize();
+          }
+        };
+        window.addEventListener('resize', this.onHsFit);
+        this.onHsFit();
+      }
+      var spots = [].slice.call(document.querySelectorAll('[data-spot]'));
+      if (spots.length) {
+        this.onSpot = function (e) {
+          spots.forEach(function (spot) {
+            var r = spot.getBoundingClientRect();
+            if (!r.width || !r.height) return;
+            spot.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+            spot.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+          });
+        };
+        window.addEventListener('pointermove', this.onSpot, { passive: true });
+        if (window.matchMedia && window.matchMedia('(hover: none)').matches) {
+          var st = [];
+          spots.forEach(function (sp) {
+            var ref = (sp.classList.contains('spot-name') && sp.closest('h1')) || sp;
+            var g = st.filter(function (o) { return o.ref === ref; })[0];
+            if (g) g.els.push(sp);
+            else st.push({ ref: ref, els: [sp], x: 50, y: 50, tx: 50, ty: 50, hold: 0, ph: st.length * 1.7 });
+          });
+          var t0 = performance.now();
+          this.onSpotTap = function (e) {
+            st.forEach(function (o) {
+              var r = o.ref.getBoundingClientRect();
+              if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom) {
+                o.tx = (e.clientX - r.left) / r.width * 100; o.ty = (e.clientY - r.top) / r.height * 100; o.hold = performance.now() + 2200;
+              }
+            });
+          };
+          window.addEventListener('pointerdown', this.onSpotTap, { passive: true });
+          var roam = function (now) {
+            var t = (now - t0) / 1000;
+            st.forEach(function (o) {
+              var r = o.ref.getBoundingClientRect();
+              if (r.bottom < 0 || r.top > window.innerHeight || !r.width) return;
+              if (now > o.hold) {
+                // a slow figure-eight across the word
+                o.tx = 50 + 42 * Math.sin(t * 0.45 + o.ph);
+                o.ty = 50 + 32 * Math.sin(t * 0.9 + o.ph * 1.3);
+              }
+              o.x += (o.tx - o.x) * 0.06; o.y += (o.ty - o.y) * 0.06;
+              // one point on screen, handed to every word in the group
+              var sx = r.left + o.x / 100 * r.width, sy = r.top + o.y / 100 * r.height;
+              o.els.forEach(function (el) {
+                var w = el.getBoundingClientRect();
+                if (!w.width || !w.height) return;
+                el.style.setProperty('--mx', ((sx - w.left) / w.width * 100).toFixed(1) + '%');
+                el.style.setProperty('--my', ((sy - w.top) / w.height * 100).toFixed(1) + '%');
+              });
+            });
+            self.roamRaf = requestAnimationFrame(roam);
+          };
+          this.roamRaf = requestAnimationFrame(roam);
+        }
+      }
+      // when the page scrolls under a still pointer, act as if the pointer moved: hover styles, the color circle and the cursor all follow
+      var px = -1, py = -1, hovered = [];
+      this.onTrack = function (e) { if (e.pointerType === 'touch' || e.pointerType === 'pen') return; px = e.clientX; py = e.clientY; };
+      this.onScrollHover = function () {
+        if (px < 0 || self.hovRaf) return;
+        self.hovRaf = requestAnimationFrame(function () {
+          self.hovRaf = 0;
+          // the browser keeps its own :hover on whatever was under the pointer before the scroll; switch that off until the pointer really moves, so only one thing looks hovered
+          if (!touchy) root.setAttribute('data-shov', '');
+          var el = document.elementFromPoint(px, py), chain = [];
+          for (var n = el; n && n !== root; n = n.parentElement) chain.push(n);
+          hovered.forEach(function (n) { if (chain.indexOf(n) < 0) n.classList.remove('hov'); });
+          chain.forEach(function (n) { n.classList.add('hov'); });
+          hovered = chain;
+          var fake = { clientX: px, clientY: py, target: el || root, pointerType: 'mouse' };
+          if (!touchy && self.onSpot) self.onSpot(fake);
+          if (!touchy && self.onMove) self.onMove(fake);
+        });
+      };
+      var touchy = window.matchMedia && window.matchMedia('(hover: none)').matches;
+      if (touchy) {
+        // phones have no hover: whatever crosses the middle of the screen while scrolling gets the hover look
+        var place = function () { px = window.innerWidth / 2; py = window.innerHeight * 0.52; };
+        place();
+        this.onTouchResize = function () { place(); self.onScrollHover(); };
+        window.addEventListener('resize', this.onTouchResize);
+        setTimeout(function () { self.onScrollHover(); }, 50);
+      }
+      // a real move hands control back to the browser's own hover
+      this.onClearHov = function (e) { if (e && e.pointerType && e.pointerType !== 'mouse') return; root.removeAttribute('data-shov'); if (hovered.length) { hovered.forEach(function (n) { n.classList.remove('hov'); }); hovered = []; } };
+      window.addEventListener('pointermove', this.onTrack, { passive: true });
+      window.addEventListener('pointermove', this.onClearHov, { passive: true });
+      window.addEventListener('scroll', this.onScrollHover, { passive: true });
+    } catch (err) {}
+  }
+  deactivate() {
+    this.active = false;
+    if (this.onHsFit) { window.removeEventListener('resize', this.onHsFit); this.onHsFit = null; }
+    document.documentElement.removeAttribute('data-hs-fit');
+    if (this.roamRaf) { cancelAnimationFrame(this.roamRaf); this.roamRaf = null; }
+    if (this.onSpotTap) { window.removeEventListener('pointerdown', this.onSpotTap); this.onSpotTap = null; }
+    if (this.onTouchResize) { window.removeEventListener('resize', this.onTouchResize); this.onTouchResize = null; }
+    if (this.menuBtn) {
+      var ml = this.onMenuLink;
+      this.menuBtn.removeEventListener('click', this.onMenuBtn);
+      this.menuLinks.forEach(function (a) { a.removeEventListener('click', ml); });
+      this.menuBtn = null;
+    }
+    document.documentElement.classList.remove('mnav-on');
+    if (this.onTrack) { window.removeEventListener('pointermove', this.onTrack); window.removeEventListener('pointermove', this.onClearHov); window.removeEventListener('scroll', this.onScrollHover); this.onTrack = null; }
+    [].slice.call(document.querySelectorAll('.hov')).forEach(function (n) { n.classList.remove('hov'); });
+    document.documentElement.removeAttribute('data-shov');
+    if (this.introTimer) clearTimeout(this.introTimer);
+    if (this.fontTimer) clearTimeout(this.fontTimer);
+    var ov = document.getElementById('lx-intro');
+    if (ov) {
+      try { ov.getAnimations({ subtree: true }).forEach(function (a) { a.cancel(); }); } catch (e) {}
+      ov.style.visibility = 'hidden';
+      ov.style.display = 'none';
+    }
+    document.documentElement.classList.remove('lx-run');
+    if (this.lenis) { this.lenis.destroy(); this.lenis = null; }
+    if (this.raf) { cancelAnimationFrame(this.raf); this.raf = null; }
+    if (this.onMove) { window.removeEventListener('pointermove', this.onMove); this.onMove = null; }
+    if (this.onSpot) { window.removeEventListener('pointermove', this.onSpot); this.onSpot = null; }
+    if (this.onNewsScroll) { window.removeEventListener('scroll', this.onNewsScroll); this.onNewsScroll = null; }
+    if (this.newsMoreBtn) {
+      this.newsMoreBtn.removeEventListener('click', this.onNewsMore); this.newsMoreBtn = null;
+      this.newsAll.forEach(function (n, k) { n.hidden = k >= 4; });
+    }
+    document.documentElement.removeAttribute('data-nactive');
+    document.documentElement.removeAttribute('data-nall');
+    document.documentElement.style.removeProperty('--nk');
+    document.documentElement.style.removeProperty('--nm');
+    if (this.onLeave) { document.documentElement.removeEventListener('mouseleave', this.onLeave); this.onLeave = null; }
+    document.documentElement.classList.remove('sa-has-cursor');
+  }
+  replayIntro() {
+    var ov = document.getElementById('lx-intro');
+    if (!ov || !ov.animate) return;
+    this.runIntro(ov);
+  }
+  runIntro(ov) {
+    var self = this;
+    var root = document.documentElement;
+    if (this.introTimer) clearTimeout(this.introTimer);
+    if (this.fontTimer) clearTimeout(this.fontTimer);
+    try { ov.getAnimations({ subtree: true }).forEach(function (a) { a.cancel(); }); } catch (e) {}
+    ov.style.animation = 'none';
+    ov.style.display = 'block';
+    ov.style.visibility = 'visible';
+    root.classList.add('lx-run');
+    try { history.scrollRestoration = 'manual'; } catch (e) {}
+    // jump (not glide) back to the top, so the hero is where the intro will measure it
+    if (this.lenis) this.lenis.scrollTo(0, { immediate: true, force: true });
+    window.scrollTo(0, 0);
+    if (this.lenis) this.lenis.stop();
+    var finish = function () {
+      root.classList.remove('lx-pre');
+      ov.style.visibility = 'hidden';
+      ov.style.display = 'none';
+      root.classList.remove('lx-run');
+      if (self.lenis) self.lenis.start();
+    };
+    var started = false;
+    var go = function () {
+      if (started) return;
+      started = true;
+      try {
+        var A = [].slice.call(ov.querySelectorAll('[data-a]'));
+        var B = [].slice.call(ov.querySelectorAll('[data-b]'));
+        var F = [].slice.call(document.querySelectorAll('[data-f]'));
+        var wipe = document.getElementById('lx-wipe');
+        if (A.length !== 2 || B.length !== 2 || F.length !== 2 || !wipe) { finish(); return; }
+        var expo = 'cubic-bezier(0.16, 1, 0.3, 1)';
+        var inout = 'cubic-bezier(0.76, 0, 0.24, 1)';
+
+        // one continuous gradient across the colored first name
+        var w0 = A[0];
+        var wr = w0.getBoundingClientRect();
+        var gs = [].slice.call(w0.querySelectorAll('.lx-g'));
+        var gl = gs.length ? gs[0].getBoundingClientRect().left : wr.left;
+        var gw = gs.length ? gs[gs.length - 1].getBoundingClientRect().right - gl : wr.width;
+        gs.forEach(function (g) {
+          var lr = g.getBoundingClientRect();
+          g.style.backgroundRepeat = 'no-repeat';
+          g.style.backgroundSize = gw + 'px 100%';
+          g.style.backgroundPosition = (gl - lr.left) + 'px 0';
+        });
+
+        // where each word has to land in the hero
+        var flips = A.map(function (a, i) {
+          var ar = a.getBoundingClientRect();
+          var fr = F[i].getBoundingClientRect();
+          var fcs = getComputedStyle(F[i]);
+          var fx = fr.left + parseFloat(fcs.paddingLeft || 0);
+          var fy = fr.top + parseFloat(fcs.paddingTop || 0);
+          var s = parseFloat(fcs.fontSize) / parseFloat(getComputedStyle(a).fontSize);
+          return 'translate(' + (fx - ar.left) + 'px,' + (fy - ar.top) + 'px) scale(' + s + ')';
+        });
+
+        var HELLO = 150, FIRST = 480, LAST = 1180, WIPE = 2250, FLY = 3250, FLYDUR = 1300;
+        [ov.querySelector('.lx-layer'), wipe].forEach(function (layer) {
+          var hi = layer.querySelector('.lx-hi');
+          hi.firstElementChild.animate([{ transform: 'translateY(115%)' }, { transform: 'translateY(0%)' }],
+            { duration: 900, delay: HELLO, easing: expo, fill: 'both' });
+          hi.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 450, delay: FLY - 100, easing: 'ease-out', fill: 'both' });
+          var words = [].slice.call(layer.querySelectorAll('.lx-w'));
+          words.forEach(function (word, w) {
+            var letters = [].slice.call(word.querySelectorAll('.lt > span'));
+            letters.forEach(function (l, i) {
+              l.animate([{ transform: 'translateY(115%)' }, { transform: 'translateY(0%)' }],
+                { duration: w === 0 ? 1200 : 1000, delay: (w === 0 ? FIRST + i * 75 : LAST + i * 40), easing: expo, fill: 'both' });
+            });
+            word.animate([{ transform: 'translate(0px,0px) scale(1)' }, { transform: flips[w] }],
+              { duration: FLYDUR, delay: FLY + w * 90, easing: inout, fill: 'both' });
+          });
+        });
+        wipe.animate([{ clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)' }],
+          { duration: 1050, delay: WIPE, easing: inout, fill: 'both' });
+        self.introTimer = setTimeout(finish, FLY + 90 + FLYDUR + 60);
+      } catch (err) { finish(); }
+    };
+    // measure two frames later, once the scroll-linked drift on the hero name has reset
+    var settle = function () { requestAnimationFrame(function () { requestAnimationFrame(go); }); };
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(settle);
+      this.fontTimer = setTimeout(go, 1500);
+    } else {
+      go();
+    }
+  }
+  componentWillUnmount() {
+    if (this.onResizeCheck) window.removeEventListener('resize', this.onResizeCheck);
+    this.deactivate();
+  }
+  renderVals() {
+    var self = this;
+    return {
+      replay: function (e) {
+        if (e && e.preventDefault) e.preventDefault();
+        self.replayIntro();
+      }
+    };
+  }
+}
+
+(function () {
+  var page = new Component({ showIntro: true, customCursor: true });
+  var start = function () {
+    page.componentDidMount();
+    var vals = page.renderVals();
+    document.querySelectorAll('[data-replay]').forEach(function (a) { a.addEventListener('click', vals.replay); });
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
+</script>
+</body>
+</html>
